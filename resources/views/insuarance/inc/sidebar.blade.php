@@ -3,12 +3,14 @@
         Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"
     -->
       <div class="logo">
-      <img src="{{ asset('logo/logo.png') }}" alt="tag" width="80">
+        <img src="{{ asset('logo/logo.png') }}" alt="tag" width="80">
+      
         <a href="" class="simple-text logo-mini">
-        
+      
         </a>
-        <a href="" class="simple-text logo-normal">
-          SUCDI
+        <a href="" class="simple-text logo-normal ">
+                    SUCDI
+          
         </a>
       </div>
       <div class="sidebar-wrapper" id="sidebar-wrapper">
