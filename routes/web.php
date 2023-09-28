@@ -35,6 +35,7 @@ Route::get('/form', [HomeController::class, 'form'])->name('form');
 
 //Register Clients
 Route::get('/RegisterClients', [ClientsController::class, 'ClientsRegistration'])->name('RegClients');
+Route::post('/SaveRegisterClient', [ClientsController::class, 'storeClient'])->name('saveClient');//save client
 
 //Register Clients
 Route::get('/ListClients', [ClientsController::class, 'ClientsList'])->name('ListClients');
