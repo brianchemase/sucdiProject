@@ -17,8 +17,10 @@
                                         <div class="form-group col-md-4">
                                         <label class="sr-only" for="inlineFormInput">Name</label>
                                                  <select id="inputState" class="form-control">
-                                                    <option selected>Choose...</option>
-                                                    <option>...</option>
+                                                 <option selected>Choose...</option>
+                                                    @foreach($clientdata as $client)
+                                                        <option value="{{ $client->id }}">{{ $client->client_names }} - {{ $client->national_id }}</option>
+                                                    @endforeach
                                                 </select>
                                         </div>
 

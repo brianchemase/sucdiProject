@@ -22,31 +22,25 @@
                         <th>Date of Birth</th>
                         <th>Phone</th>
                         <th>Email</th>
-                        <th>Residence</th>
-                        <th>Postal Address</th>
-                        <th>Postal Code</th>
-                        <th>City</th>
-                        <th>Country</th>
-                        <th>Nationality</th>
+                        <th>Residence</th>                        
+                        <th>City</th>                       
                         <th>Client Type</th>
+                        <th>Action</th>
                     </tr>
                     </thead>
                     <tbody>
                         @foreach ($clientdata as $client)
                             <tr>
-                                <td> 12</td>
+                                <td> {{ $loop->iteration }}</td>
                                 <td>{{ $client->client_names }}</td>
                                 <td>{{ $client->national_id }}</td>
                                 <td>{{ $client->DOB }}</td>
                                 <td>{{ $client->phone }}</td>
                                 <td>{{ $client->email }}</td>
-                                <td>{{ $client->home_residence }}</td>
-                                <td>{{ $client->postal_address }}</td>
-                                <td>{{ $client->postal_code }}</td>
-                                <td>{{ $client->city }}</td>
-                                <td>{{ $client->country }}</td>
-                                <td>{{ $client->nationality }}</td>
+                                <td>{{ $client->home_residence }}</td>                                
+                                <td>{{ $client->city }}</td>                                
                                 <td>{{ $client->client_type }}</td>
+                                <td> </td>
                             </tr>
                         @endforeach
                     </tbody>
@@ -59,12 +53,10 @@
                                 <th>Phone</th>
                                 <th>Email</th>
                                 <th>Residence</th>
-                                <th>Postal Address</th>
-                                <th>Postal Code</th>
-                                <th>City</th>
-                                <th>Country</th>
-                                <th>Nationality</th>
+                                <th>City</th>                                
                                 <th>Client Type</th>
+                                <th>Action</th>
+
                             </tr>
                         </tfoot>
                     </table>

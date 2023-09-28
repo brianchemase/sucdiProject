@@ -78,7 +78,10 @@ class ClientsController extends Controller
 
     public function SearchClient()
     {
+        $clients = DB::table('clients_data')->get(); // Fetch all client data
+
         $data=[
+            'clientdata'=> $clients,
             
         ];
 
