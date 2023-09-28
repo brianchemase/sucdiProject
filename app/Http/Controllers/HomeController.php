@@ -24,4 +24,25 @@ class HomeController extends Controller
 
         return view ('insuarance.table')->with($data);
     }
+
+    public function blank()
+    {
+        $data=[
+            
+        ];
+
+        return view ('insuarance.blankpage')->with($data);
+    }
+
+
+    public function form()
+    {
+        $data=[
+            
+        ];
+
+        return view ('insuarance.formpage')->with($data);
+    }
+
+    
 }

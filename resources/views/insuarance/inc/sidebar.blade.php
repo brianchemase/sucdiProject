@@ -8,25 +8,39 @@
         <a href="" class="simple-text logo-mini">
       
         </a>
-        <a href="" class="simple-text logo-normal ">
-                    SUCDI
-          
+        <a href="{{route('dashboard')}}" class="simple-text logo-normal ">
+                    SUCDI Insuarance Agency LTD
         </a>
       </div>
       <div class="sidebar-wrapper" id="sidebar-wrapper">
         <ul class="nav">
-          <li class="active ">
-            <a href="">
+          <li class="{{ Route::currentRouteName() === 'dashboard' ? 'active' : '' }}" >
+            <a href="{{route('dashboard')}}">
               <i class="now-ui-icons design_app"></i>
               <p>Dashboard</p>
             </a>
           </li>
-          <li>
-            <a href="">
+          <li class="{{ Route::currentRouteName() === 'RegClients' ? 'active' : '' }}" >
+            <a href="{{route('RegClients')}}">
               <i class="now-ui-icons education_atom"></i>
-              <p>Clients</p>
+              <p>Clients Register</p>
             </a>
           </li>
+
+          <li class="{{ Route::currentRouteName() === 'ListClients' ? 'active' : '' }}" >
+            <a href="{{route('ListClients')}}">
+              <i class="now-ui-icons education_atom"></i>
+              <p>Clients List</p>
+            </a>
+          </li>
+
+          <li class="{{ Route::currentRouteName() === 'SearchClient' ? 'active' : '' }}" >
+            <a href="{{route('SearchClient')}}">
+              <i class="now-ui-icons education_atom"></i>
+              <p>Search Client</p>
+            </a>
+          </li>
+
           <li>
             <a href="">
               <i class="now-ui-icons location_map-big"></i>
@@ -34,7 +48,7 @@
             </a>
           </li>
           <li>
-            <a href="./notifications.html">
+            <a href="">
               <i class="now-ui-icons ui-1_bell-53"></i>
               <p>Notifications</p>
             </a>
@@ -45,16 +59,23 @@
               <p>User Profile</p>
             </a>
           </li>
-          <li>
-            <a href="">
+          <li class="{{ Route::currentRouteName() === 'table' ? 'active' : '' }}" >
+            <a href="{{route('table')}}">
               <i class="now-ui-icons design_bullet-list-67"></i>
-              <p>Table List</p>
+              <p>Table View</p>
             </a>
           </li>
-          <li>
-            <a href="">
+          <li class="{{ Route::currentRouteName() === 'blank' ? 'active' : '' }}" >
+            <a href="{{route('blank')}}">
               <i class="now-ui-icons text_caps-small"></i>
-              <p>Typography</p>
+              <p>Blank Page</p>
+            </a>
+          </li>
+
+          <li class="{{ Route::currentRouteName() === 'form' ? 'active' : '' }}" >
+            <a href="{{route('form')}}">
+              <i class="now-ui-icons text_caps-small"></i>
+              <p>Form Page</p>
             </a>
           </li>
           <li class="active-pro">
