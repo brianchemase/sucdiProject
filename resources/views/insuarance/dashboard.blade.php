@@ -4,96 +4,65 @@
 
 @section('content')
 <div class="content">
-      <div class="row">
-            <div class="col-lg-4 col-sm-6">
-            <div class="card card-stats">
-    
-                            <div class="card-body ">
-                                    <div class="statistics statistics-horizontal">
-                                    <div class="info info-horizontal">
-                                        <div class="row">
-                                          <div class="col-5">
-                                            <div class="icon icon-primary icon-circle">
-                                                <i class="now-ui-icons ui-2_chat-round"></i>
-                                            </div>
-                                          </div>
-                                          <div class="col-7 text-right">
-                                            <h3 class="info-title">167</h3>
-                                            <h6 class="stats-title">Counter</h6>
-                                          </div>
-                                        </div>
-                                    </div>
-                                </div>
-        </div>
-          <hr>
-                    <div class="card-footer ">
-                    <div class="stats">
-                        <i class="now-ui-icons arrows-1_refresh-69"></i> Update now
-                    </div>
-                </div>
-                </div>
 
-            </div>
-          <div class="col-lg-4 col-sm-6">
-            <div class="card card-stats">
-             <div class="card-body ">
-                <div class="statistics statistics-horizontal">
-                  <div class="info info-horizontal">
-                       <div class="row">
-                          <div class="col-5">
-                             <div class="icon icon-warning icon-circle">
-                                 <i class="now-ui-icons business_bank"></i>
-                              </div>
-                          </div>
-                       <div class="col-7 text-right">
-                              <h3 class="info-title">2</h3>
-                              <h6 class="stats-title">Registered Contacts</h6>
-                        </div>
-                       </div>
+<div class="row">
+<div class="col-md-12">
+<div class="card card-stats">
+<div class="card-body">
+        <div class="row">
+            <div class="col-md-3">
+              <div class="statistics">
+                <div class="info">
+                  <div class="icon icon-primary">
+                  <i class="now-ui-icons ui-2_chat-round"></i>
                   </div>
-               </div>   
-             </div>
-             <hr>
-              <div class="card-footer ">
-                          <div class="stats">
-                                            <i class="now-ui-icons arrows-1_refresh-69"></i> Update now
-                                        </div>
-                                    </div>
-                            </div>
-
+                    <h3 class="info-title">859</h3>
+                    <h6 class="stats-title">Messages</h6>
                 </div>
-                <div class="col-lg-4 col-sm-6">
-
-            <div class="card card-stats">
-    
-            <div class="card-body ">
-
-              <div class="statistics statistics-horizontal">
-                                    <div class="info info-horizontal">
-                                        <div class="row">
-                                          <div class="col-5">
-                                            <div class="icon icon-success icon-circle">
-                                                <i class="now-ui-icons users_single-02"></i>
-                                            </div>
-                                          </div>
-                                          <div class="col-7 text-right">
-                                            <h3 class="info-title">2</h3>
-                                            <h6 class="stats-title">Registered users</h6>
-                                          </div>
-                                        </div>
-                                    </div>
-                                </div>     
-                             </div>
-    
-                  <hr>
-                      <div class="card-footer ">
-                            <div class="stats">
-                              <i class="now-ui-icons arrows-1_refresh-69"></i> Update now
-                          </div>
-                    </div>
-    
+            </div>
+        </div>
+          <div class="col-md-3">
+            <div class="statistics">
+              <div class="info">
+                <div class="icon icon-success">
+                <i class="now-ui-icons business_money-coins"></i>
                 </div>
-         </div>
+                  <h3 class="info-title"><small>$</small>3,521</h3>
+                  <h6 class="stats-title">Today Revenue</h6>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="statistics">
+              <div class="info">
+                <div class="icon icon-info">
+                <i class="now-ui-icons users_single-02"></i>
+                </div>
+                  <h3 class="info-title">562</h3>
+                  <h6 class="stats-title">Customers</h6>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3">
+              <div class="statistics">
+                <div class="info">
+                  <div class="icon icon-danger">
+                  <i class="now-ui-icons objects_support-17"></i>
+                  </div>
+                      <h3 class="info-title">353</h3>
+                      <h6 class="stats-title">Support Requests</h6>
+                  </div>
+                  </div>
+                </div>
+              </div>
+              </div>
+          </div>
+        </div>
+     </div>
+
+
+
+
         <div class="row">
           <div class="col-lg-4">
             <div class="card card-chart">
