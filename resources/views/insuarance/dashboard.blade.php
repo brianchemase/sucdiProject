@@ -14,10 +14,10 @@
               <div class="statistics">
                 <div class="info">
                   <div class="icon icon-primary">
-                  <i class="now-ui-icons ui-2_chat-round"></i>
+                  <i class="now-ui-icons users_single-02"></i>
                   </div>
                     <h3 class="info-title">859</h3>
-                    <h6 class="stats-title">Messages</h6>
+                    <h6 class="stats-title">Registered Clients</h6>
                 </div>
             </div>
         </div>
@@ -39,7 +39,7 @@
                 <i class="now-ui-icons users_single-02"></i>
                 </div>
                   <h3 class="info-title">562</h3>
-                  <h6 class="stats-title">Customers</h6>
+                  <h6 class="stats-title">active Customers</h6>
               </div>
             </div>
           </div>
@@ -47,10 +47,10 @@
               <div class="statistics">
                 <div class="info">
                   <div class="icon icon-danger">
-                  <i class="now-ui-icons objects_support-17"></i>
+                  <i class="now-ui-icons media-2_sound-wave"></i>
                   </div>
                       <h3 class="info-title">353</h3>
-                      <h6 class="stats-title">Support Requests</h6>
+                      <h6 class="stats-title">Active Covers</h6>
                   </div>
                   </div>
                 </div>
@@ -60,10 +60,36 @@
         </div>
      </div>
 
+     <div class="row">
+      <div class="col-lg-4 col-sm-6">
+          <div class="card card-stats">
+              <div class="card-body ">
+                <div class="statistics statistics-horizontal">
+                          <div class="info info-horizontal">
+                              <div class="row">
+                                <div class="col-5">
+                                  <div class="icon icon-primary icon-circle">
+                                      <i class="now-ui-icons ui-2_chat-round"></i>
+                                  </div>
+                                </div>
+                                <div class="col-7 text-right">
+                                  <h3 class="info-title">167</h3>
+                                  <h6 class="stats-title">Counter</h6>
+                                </div>
+                              </div>
+                          </div>
+                      </div>
+                </div>
+              </div>
+        </div>
+      </div>
 
 
 
-        <div class="row">
+
+
+
+        <!-- <div class="row">
           <div class="col-lg-4">
             <div class="card card-chart">
               <div class="card-header">
@@ -140,8 +166,8 @@
               </div>
             </div>
           </div>
-        </div>
-        <div class="row">
+        </div> -->
+        <!-- <div class="row">
           <div class="col-md-6">
             <div class="card  card-tasks">
               <div class="card-header ">
@@ -322,7 +348,7 @@
               </div>
             </div>
           </div>
-        </div>
+        </div> -->
       </div>
 
 

@@ -18,9 +18,7 @@
   
   <link href="../assets/css/bootstrap.min.css" rel="stylesheet" />
   <link href="../assets/css/now-ui-dashboard.css?v=1.5.0" rel="stylesheet" />
-
-  <link href="{{asset('assets/css/bootstrap.min.css')}}" rel="stylesheet">
-  <link href="{{asset('assets/css/now-ui-dashboard.css?v=1.5.0')}}" rel="stylesheet">
+ 
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 
      <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css'>
@@ -29,6 +27,9 @@
  
   <!-- CSS Just for demo purpose, don't include it in your project -->
   <link href="{{asset('assets/demo/demo.css')}}" rel="stylesheet" />
+
+  <link href="{{asset('assets/css/bootstrap.min.css')}}" rel="stylesheet">
+  <link href="{{asset('assets/css/now-ui-dashboard.min.css?v=1.5.0')}}" rel="stylesheet">
 </head>
 
 <body class="">
