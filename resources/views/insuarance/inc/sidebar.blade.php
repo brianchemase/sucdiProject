@@ -44,9 +44,73 @@
           <li>
             <a href="">
               <i class="now-ui-icons location_map-big"></i>
-              <p>Maps</p>
+              <p>Settings</p>
             </a>
           </li>
+          <li>
+            <a href="">
+              <i class="now-ui-icons location_map-big"></i>
+              <p>Policies</p>
+            </a>
+          </li>
+
+          <li>
+            <a href="">
+              <i class="now-ui-icons location_map-big"></i>
+              <p>Transactions</p>
+            </a>
+          </li>
+
+          <li>
+            <a href="">
+              <i class="now-ui-icons location_map-big"></i>
+              <p>Underwriting</p>
+            </a>
+          </li>
+
+          <li>
+            <a href="">
+              <i class="now-ui-icons location_map-big"></i>
+              <p>Reports</p>
+            </a>
+          </li>
+
+          <li>
+            <a href="">
+              <i class="now-ui-icons location_map-big"></i>
+              <p>Claims</p>
+            </a>
+          </li>
+
+          <li>
+            <a href="">
+              <i class="now-ui-icons location_map-big"></i>
+              <p>Commissions</p>
+            </a>
+          </li>
+
+          <li>
+            <a href="">
+              <i class="now-ui-icons location_map-big"></i>
+              <p>Contributions</p>
+            </a>
+          </li>
+
+          <li>
+            <a href="">
+              <i class="now-ui-icons location_map-big"></i>
+              <p>Quotations</p>
+            </a>
+          </li>
+
+          <li>
+            <a href="">
+              <i class="now-ui-icons location_map-big"></i>
+              <p>Payments</p>
+            </a>
+          </li>
+
+
           <li>
             <a href="">
               <i class="now-ui-icons ui-1_bell-53"></i>
