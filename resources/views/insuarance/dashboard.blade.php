@@ -61,7 +61,7 @@
      </div>
 
      <div class="row">
-      <div class="col-lg-4 col-sm-6">
+      <div class="col-lg-6 col-sm-6">
           <div class="card card-stats">
               <div class="card-body ">
                 <div class="statistics statistics-horizontal">
@@ -81,6 +81,47 @@
                       </div>
                 </div>
               </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-6 col-sm-6">
+          <div class="card card-stats">
+              <div class="card-body ">
+
+                <div id="ProductDist" style="width:100%; max-width:600px; height:500px;"></div>
+
+
+                <script>
+                      google.charts.load('current', {'packages':['corechart']});
+                      google.charts.setOnLoadCallback(drawChart);
+
+                      function drawChart() {
+
+                      // Set Data
+                      const data = google.visualization.arrayToDataTable([
+                        ['Contry', 'Mhl'],
+                        ['Product 1',54.8],
+                        ['Product 2',48.6],
+                        ['Product 3 ',44.4],
+                        ['Product 4',23.9],
+                        ['Others',14.5]
+                      ]);
+
+                      // Set Options
+                      const options = {
+                        title:'Products Distribution',
+                        is3D:true
+                      };
+
+                      // Draw
+                      const chart = new google.visualization.PieChart(document.getElementById('ProductDist'));
+                      chart.draw(data, options);
+
+                      }
+                </script>
+              </div>
+            </div>
         </div>
       </div>
 

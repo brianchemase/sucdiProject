@@ -8,13 +8,22 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
+                    
                         @if ($message = Session::get('success'))
-                        <div class="alert alert-success alert-dismissible" role="alert">
+
+                                <script>
+                                    window.addEventListener('DOMContentLoaded', function() {
+                                        swal("Client Registered", "{{ $message }}", "success");
+                                    });
+                                </script>
+
+                        <!-- <div class="alert alert-success alert-dismissible" role="alert">
                             <button type="button" class="btn-close" data-dismiss="alert" aria-label="Close"></button>
                             <div class="alert-message">
                                 <strong>{{ $message }}</strong> 
+                                
                             </div>
-                        </div>
+                        </div> -->
                         @endif
 
                         @if (count($errors) > 0)
