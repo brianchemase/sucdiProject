@@ -60,8 +60,8 @@
         </div>
      </div>
 
-     <div class="row">
-      <div class="col-lg-6 col-sm-6">
+      <div class="row">
+        <div class="col-lg-4 col-sm-6">
           <div class="card card-stats">
               <div class="card-body ">
                 <div class="statistics statistics-horizontal">
@@ -82,16 +82,110 @@
                 </div>
               </div>
         </div>
+
+        <div class="col-lg-4 col-sm-6">
+          <div class="card card-stats">
+              <div class="card-body ">
+                <div class="statistics statistics-horizontal">
+                          <div class="info info-horizontal">
+                              <div class="row">
+                                <div class="col-5">
+                                  <div class="icon icon-primary icon-circle">
+                                      <i class="now-ui-icons ui-2_chat-round"></i>
+                                  </div>
+                                </div>
+                                <div class="col-7 text-right">
+                                  <h3 class="info-title">167</h3>
+                                  <h6 class="stats-title">Active Running Covers</h6>
+                                </div>
+                              </div>
+                          </div>
+                      </div>
+                </div>
+              </div>
+        </div>
+
+        <div class="col-lg-4 col-sm-6">
+          <div class="card card-stats">
+              <div class="card-body ">
+                <div class="statistics statistics-horizontal">
+                          <div class="info info-horizontal">
+                              <div class="row">
+                                <div class="col-5">
+                                  <div class="icon icon-primary icon-circle">
+                                      <i class="now-ui-icons ui-2_chat-round"></i>
+                                  </div>
+                                </div>
+                                <div class="col-7 text-right">
+                                  <h3 class="info-title">167</h3>
+                                  <h6 class="stats-title">Active Running Covers</h6>
+                                </div>
+                              </div>
+                          </div>
+                      </div>
+                </div>
+              </div>
+        </div>
+
       </div>
 
       <div class="row">
-        <div class="col-lg-6 col-sm-6">
-          <div class="card card-stats">
+        
+
+
+      <div class="col-lg-6 col-sm-6">
+            <div class="card  card-tasks">
+              <div class="card-header ">
+                <h5 class="card-category">Title</h5>
+                <h4 class="card-title">Description</h4>
+              </div>
               <div class="card-body ">
+                <div class="table-full-width table-responsive">
+                <canvas id="myChartProducts" style="width:100%;max-width:600px"></canvas>
 
+                  <script>
+                  const xValues = ["Product 1", "Product 1", "Product 2", "Product 3", "Product 4"];
+                  const yValues = [55, 49, 44, 24, 15];
+                  const barColors = [
+                    "#b91d47",
+                    "#00aba9",
+                    "#2b5797",
+                    "#e8c3b9",
+                    "#1e7145"
+                  ];
+
+                  new Chart("myChartProducts", {
+                    type: "doughnut",
+                    data: {
+                      labels: xValues,
+                      datasets: [{
+                        backgroundColor: barColors,
+                        data: yValues
+                      }]
+                    },
+                    options: {
+                      title: {
+                        display: true,
+                        text: "World Wide Wine Production 2018"
+                      }
+                    }
+                  });
+                  </script>
+                  
+
+                </div>
+              </div>
+            </div>
+          </div>
+
+        <div class="col-lg-6 col-sm-6">
+         <div class="card card-stats">
+          <div class="card-header ">
+                <h5 class="card-category">Product Distribution</h5>
+                <h4 class="card-title">Pie Showing the distribution</h4>
+              </div>
+              <div class="card-body ">
                 <div id="ProductDist" style="width:100%; max-width:600px; height:500px;"></div>
-
-
                 <script>
                       google.charts.load('current', {'packages':['corechart']});
                       google.charts.setOnLoadCallback(drawChart);
@@ -122,8 +216,10 @@
                 </script>
               </div>
             </div>
-        </div>
+
       </div>
+
+     
 
 
 

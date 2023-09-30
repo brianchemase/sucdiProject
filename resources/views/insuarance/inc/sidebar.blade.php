@@ -22,41 +22,41 @@
           </li>
           <li class="{{ Route::currentRouteName() === 'RegClients' ? 'active' : '' }}" >
             <a href="{{route('RegClients')}}">
-              <i class="now-ui-icons education_atom"></i>
+              <i class="now-ui-icons business_badge"></i>
               <p>Clients Register</p>
             </a>
           </li>
 
           <li class="{{ Route::currentRouteName() === 'ListClients' ? 'active' : '' }}" >
             <a href="{{route('ListClients')}}">
-              <i class="now-ui-icons education_atom"></i>
+              <i class="now-ui-icons design_bullet-list-67"></i>
               <p>Clients List</p>
             </a>
           </li>
 
           <li class="{{ Route::currentRouteName() === 'SearchClient' ? 'active' : '' }}" >
             <a href="{{route('SearchClient')}}">
-              <i class="now-ui-icons education_atom"></i>
+              <i class="now-ui-icons ui-1_zoom-bold"></i>
               <p>Search Client</p>
             </a>
           </li>
 
           <li>
             <a href="">
-              <i class="now-ui-icons location_map-big"></i>
+              <i class="now-ui-icons loader_gear"></i>
               <p>Settings</p>
             </a>
           </li>
           <li>
             <a href="">
-              <i class="now-ui-icons location_map-big"></i>
+              <i class="now-ui-icons business_briefcase-24"></i>
               <p>Policies</p>
             </a>
           </li>
 
           <li>
             <a href="">
-              <i class="now-ui-icons location_map-big"></i>
+              <i class="now-ui-icons business_chart-bar-32"></i>
               <p>Transactions</p>
             </a>
           </li>
@@ -70,7 +70,7 @@
 
           <li>
             <a href="">
-              <i class="now-ui-icons location_map-big"></i>
+              <i class="now-ui-icons files_single-copy-04"></i>
               <p>Reports</p>
             </a>
           </li>
