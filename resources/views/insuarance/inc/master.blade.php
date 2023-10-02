@@ -24,8 +24,11 @@
      <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css'>
     <link rel='stylesheet' href='https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css'>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <script src="https://www.gstatic.com/charts/loader.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+    <!-- <script src="https://www.gstatic.com/charts/loader.js"></script> -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script> -->
+    <script src="{{asset('assets/js/loader.js')}}"></script>
+    <script src="{{asset('assets/js/Chart.js')}}"></script>
+    
   <!-- CSS Just for demo purpose, don't include it in your project -->
   <link href="{{asset('assets/demo/demo.css')}}" rel="stylesheet" />
 
