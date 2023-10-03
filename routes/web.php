@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ClientsController;
+use App\Http\Controllers\PoliciesController;
+use App\Http\Controllers\IssuedCoversController;
 
 /*
 |--------------------------------------------------------------------------
@@ -42,3 +44,14 @@ Route::get('/ListClients', [ClientsController::class, 'ClientsList'])->name('Lis
 
 //search Registered Clients
 Route::get('/SearchClients', [ClientsController::class, 'SearchClient'])->name('SearchClient');
+
+
+
+//policies pages
+Route::get('/PoliciesTab', [PoliciesController::class, 'policiestab'])->name('policiespages');//IssuedCoversController
+
+
+
+//policies pages
+Route::get('/IssuedCovers', [IssuedCoversController::class, 'issuedCovers'])->name('issuedcoverspages');//IssuedCoversController
+Route::post('/SaveIssuedCovers', [IssuedCoversController::class, 'saveissuedCover'])->name('saveissuedcover');

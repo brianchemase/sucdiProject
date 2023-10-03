@@ -47,8 +47,16 @@
               <p>Settings</p>
             </a>
           </li>
-          <li>
-            <a href="">
+          <li class="{{ Route::currentRouteName() === 'issuedcoverspages' ? 'active' : '' }}" >
+            <a href="{{route('issuedcoverspages')}}">
+              <i class="now-ui-icons business_briefcase-24"></i>
+              <p>Issued Covers</p>
+            </a>
+          </li>
+
+
+          <li class="{{ Route::currentRouteName() === 'policiespages' ? 'active' : '' }}" >
+            <a href="{{route('policiespages')}}">
               <i class="now-ui-icons business_briefcase-24"></i>
               <p>Policies</p>
             </a>
