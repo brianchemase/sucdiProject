@@ -16,7 +16,7 @@
                   <div class="icon icon-primary">
                   <i class="now-ui-icons users_single-02"></i>
                   </div>
-                    <h3 class="info-title">859</h3>
+                    <h3 class="info-title">{{$total_customers}}</h3>
                     <h6 class="stats-title">Registered Clients</h6>
                 </div>
             </div>
@@ -27,7 +27,7 @@
                 <div class="icon icon-success">
                 <i class="now-ui-icons business_money-coins"></i>
                 </div>
-                  <h3 class="info-title"><small>$</small>3,521</h3>
+                  <h3 class="info-title"><small>KES </small>{{$revenue_amount}}</h3>
                   <h6 class="stats-title">Today Revenue</h6>
               </div>
             </div>
@@ -36,10 +36,10 @@
             <div class="statistics">
               <div class="info">
                 <div class="icon icon-info">
-                <i class="now-ui-icons users_single-02"></i>
+                <i class="now-ui-icons design_bullet-list-67"></i>
                 </div>
-                  <h3 class="info-title">562</h3>
-                  <h6 class="stats-title">active Customers</h6>
+                  <h3 class="info-title">{{$active_policies}}</h3>
+                  <h6 class="stats-title">Active Policies</h6>
               </div>
             </div>
           </div>
@@ -49,7 +49,7 @@
                   <div class="icon icon-danger">
                   <i class="now-ui-icons media-2_sound-wave"></i>
                   </div>
-                      <h3 class="info-title">353</h3>
+                      <h3 class="info-title">{{$active_covers}}</h3>
                       <h6 class="stats-title">Active Covers</h6>
                   </div>
                   </div>
@@ -73,8 +73,30 @@
                                   </div>
                                 </div>
                                 <div class="col-7 text-right">
-                                  <h3 class="info-title">167</h3>
-                                  <h6 class="stats-title">Counter</h6>
+                                  <h3 class="info-title">{{$monthly_covers}}</h3>
+                                  <h6 class="stats-title">Monthly Issued Covers</h6>
+                                </div>
+                              </div>
+                          </div>
+                      </div>
+                </div>
+              </div>
+        </div>
+
+        <div class="col-lg-4 col-sm-6">
+          <div class="card card-stats">
+              <div class="card-body ">
+                <div class="statistics statistics-horizontal">
+                          <div class="info info-horizontal">
+                              <div class="row">
+                                <div class="col-5">
+                                  <div class="icon icon-info icon-circle">
+                                      <i class="now-ui-icons ui-2_chat-round"></i>
+                                  </div>
+                                </div>
+                                <div class="col-7 text-right">
+                                  <h3 class="info-title">{{$monthly_revenue}}</h3>
+                                  <h6 class="stats-title">Collected Month's Revenue </h6>
                                 </div>
                               </div>
                           </div>
@@ -95,30 +117,8 @@
                                   </div>
                                 </div>
                                 <div class="col-7 text-right">
-                                  <h3 class="info-title">167</h3>
-                                  <h6 class="stats-title">Active Running Covers</h6>
-                                </div>
-                              </div>
-                          </div>
-                      </div>
-                </div>
-              </div>
-        </div>
-
-        <div class="col-lg-4 col-sm-6">
-          <div class="card card-stats">
-              <div class="card-body ">
-                <div class="statistics statistics-horizontal">
-                          <div class="info info-horizontal">
-                              <div class="row">
-                                <div class="col-5">
-                                  <div class="icon icon-primary icon-circle">
-                                      <i class="now-ui-icons ui-2_chat-round"></i>
-                                  </div>
-                                </div>
-                                <div class="col-7 text-right">
-                                  <h3 class="info-title">167</h3>
-                                  <h6 class="stats-title">Active Running Covers</h6>
+                                  <h3 class="info-title">{{$monthly_expiering}}</h3>
+                                  <h6 class="stats-title">Covers Coming to an End</h6>
                                 </div>
                               </div>
                           </div>

@@ -49,7 +49,7 @@ Route::get('/SearchClients', [ClientsController::class, 'SearchClient'])->name('
 
 //policies pages
 Route::get('/PoliciesTab', [PoliciesController::class, 'policiestab'])->name('policiespages');//IssuedCoversController
-
+Route::post('/SavePolicy', [PoliciesController::class, 'savepolicy'])->name('savepolicy');//savepolicy
 
 
 //policies pages
