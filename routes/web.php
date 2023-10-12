@@ -5,6 +5,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ClientsController;
 use App\Http\Controllers\PoliciesController;
 use App\Http\Controllers\IssuedCoversController;
+use App\Http\Controllers\ReportController;
 
 /*
 |--------------------------------------------------------------------------
@@ -48,6 +49,9 @@ Route::get('/blank', [HomeController::class, 'blank'])->name('blank');
 
 //form
 Route::get('/form', [HomeController::class, 'form'])->name('form');
+
+
+Route::get('previewPDF', [ReportController::class, 'issuedCovers']);
 
 
 //Register Clients
