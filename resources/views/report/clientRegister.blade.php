@@ -19,8 +19,8 @@
         </div>
       </div>
     </div><br>
-    <table class="table table-bordered">
-      <tr>
+    <table class="table table-bordered table-striped">
+      <thead class="thead-dark">
         <th>#</th>
         <th>Client Name</th>
         <th>Phone</th>
@@ -29,7 +29,7 @@
         <th>Residence</th>
         <th>Postal Address</th>
         <th>Client Type</th>
-      </tr>
+      </thead>
       @foreach ($clients as $data)
       <tr>
         <td>{{ $loop->iteration }}</td>
@@ -39,7 +39,9 @@
         <td>{{ $data->national_id }}</td>
         <td>{{ $data->home_residence }}</td>
         <td>{{ $data->postal_address }} - {{ $data->postal_code }}</td>
-        <td>{{ $data->client_type }}</td>
+        <td>
+            {{ $data->client_type === 'individual' ? 'Personal' : 'Company' }}
+        </td>
       </tr>
       @endforeach
     </table>

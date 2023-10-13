@@ -122,6 +122,8 @@
                                     </div>
                                     </div>
                             </div>
+
+                            
                     </div>
             </div>
         </div>        
@@ -134,10 +136,15 @@
               <div class="card-header">
                 <h4 class="card-title"> Issued Covers</h4>
               </div>
+                    <div class="card-body">
+                            <div class="pull-right">
+                                <a class="btn btn-primary" href="{{route('issuedCoversPDF')}}" target="_blank">Generate Report</a>
+                            </div>
+                    </div>
               <div class="card-body">
                 <div class="table-responsive">
-                  <table id="example" class="table table-striped" style="width:100%">
-                    <thead>
+                  <table id="example" class="table table-striped sm" style="width:100%">
+                    <thead style="font-weight: bold;">
                     <tr>
                     <th>ID</th>
                     <th>Client Name</th>
@@ -147,6 +154,7 @@
                     <th>Amount</th>
                     <th>Policy Code</th>
                     <th>Policy Name</th>
+                    <th>Status</th>
                     <th>Action</th>
                   </tr>
                     </thead>
@@ -156,11 +164,28 @@
                                     <td>{{ $cover->id }}</td>
                                     <td>{{ $cover->client_names }}</td>
                                     <td>{{ $cover->policytype }}</td>
-                                    <td>{{ $cover->start_date }}</td>
-                                    <td>{{ $cover->end_date }}</td>
+                                    <td>{{ \Carbon\Carbon::parse($cover->start_date)->format('jS F Y') }}</td>
+                                    <td>{{ \Carbon\Carbon::parse($cover->end_date)->format('jS F Y') }}</td>
                                     <td>{{ $cover->PremiumAmount }}</td>
                                     <td>{{ $cover->policy_code }}</td> <!-- Display policy_code -->
                                     <td>{{ $cover->policy_name }}</td> 
+                                    <td style="color: 
+                                        @if ($cover->status == 'running')
+                                            green
+                                        @elseif ($cover->status == 'expired')
+                                            red
+                                        @else
+                                            amber
+                                        @endif
+                                        ">
+                                        @if ($cover->status == 'running')
+                                           <b> Active </b>
+                                        @elseif ($cover->status == 'expired')
+                                            Expired
+                                        @else
+                                            On Review
+                                        @endif
+                                    </td>
                                     <td></td>
                                     <!-- Add other table data cells for the columns you want to display -->
                                 </tr>
@@ -176,6 +201,7 @@
                             <th>Amount</th>
                             <th>Policy Code</th>
                             <th>Policy Name</th>
+                            <th>Status</th>
                             <th>Action</th>
                             </tr>
                         </tfoot>

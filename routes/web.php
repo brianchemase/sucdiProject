@@ -54,7 +54,7 @@ Route::get('/form', [HomeController::class, 'form'])->name('form');
 Route::get('IssuedCoversPDF', [ReportController::class, 'issuedCovers'])->name('IssuedCoversPDF');// issued covers pdf report
 
 Route::get('clientRegisterReport', [ReportController::class, 'clientRegister'])->name('clientsRegisterPDF');
-Route::get('previewPDF', [ReportController::class, 'issuedCovers']);
+Route::get('ClientIssuedCovers', [ReportController::class, 'issuedCovers'])->name('issuedCoversPDF');
 
 
 //Register Clients

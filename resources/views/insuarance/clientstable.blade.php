@@ -11,6 +11,13 @@
               <div class="card-header">
                 <h4 class="card-title"> Registered Clients</h4>
               </div>
+              
+              <div class="card-body">
+                <div class="pull-right">
+                  <a class="btn btn-primary" href="{{route('clientsRegisterPDF')}}" target="_blank">Generate Client List</a>
+                </div>
+              </div>
+                
               <div class="card-body">
                 <div class="table-responsive">
                   <table id="example" class="table table-striped" style="width:100%">
