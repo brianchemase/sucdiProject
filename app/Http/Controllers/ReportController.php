@@ -22,21 +22,36 @@ class ReportController extends Controller
        // return $issuedCovers;
 
         $data = [
-            'title' => 'How To Create PDF File In Laravel 10 - Techsolutionstuff',
+            'title' => 'Issued Covers Clients List',
             'date' => date('d/m/Y'),
             'issuedCovers' => $issuedCovers
             ];
 
         
-            
-            $pdf = PDF::loadView('report.report', $data);
-            //return view('report.report', $data);
-            return $pdf->stream();
+
+            $pdf = PDF::loadView('report.IssuedCovers', $data);
+            $pdf->setPaper('L', 'landscape');
+              return $pdf->stream("Registered_clientsCovers.pdf");
 
 
-	        return $pdf->download('users_list.pdf');
+    }
+
+    public function clientRegister(Request $request)
+    {
+
+        $clients = DB::table('clients_data')->get(); // Fetch all client data
 
 
+        $data = [
+            'title' => 'Registered Clients List',
+            'date' => date('d/m/Y'),
+            'clients' => $clients
+            ];
 
+        
+
+            $pdf = PDF::loadView('report.clientRegister', $data);
+            $pdf->setPaper('L', 'landscape');
+              return $pdf->stream("Registered_clients_names.pdf");
     }
 }

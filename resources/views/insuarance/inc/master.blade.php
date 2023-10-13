@@ -23,7 +23,9 @@
 
      <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css'>
     <link rel='stylesheet' href='https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css'>
+    
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel='stylesheet' href='https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css'>
     <!-- <script src="https://www.gstatic.com/charts/loader.js"></script> -->
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script> -->
     <script src="{{asset('assets/js/loader.js')}}"></script>
@@ -75,6 +77,7 @@
   <script src='https://code.jquery.com/jquery-3.3.1.js'></script>
     <script src='https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js'></script>
     <script src='https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js'></script>
+    <script src='https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js'></script>
     
 
   <script>
