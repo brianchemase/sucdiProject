@@ -63,6 +63,12 @@
                                             <form method="POST" action="{{ route('savepolicy') }}">
                                                 @csrf
                                                 <div class="form-group">
+                                                    <label for="tab1">Policy Provider</label>
+                                                    <input type="text" class="form-control" id="inputtext" aria-describedby="emailHelp" name="policy_provider" placeholder="Enter Policy Provider" required>
+                                                    <small id="emailHelp" class="form-text text-muted">Capture the policy provider names.</small>
+                                                </div>
+
+                                                <div class="form-group">
                                                     <label for="tab1">Policy Name</label>
                                                     <input type="text" class="form-control" id="inputtext" aria-describedby="emailHelp" name="policy_name" placeholder="Enter Policy Name" required>
                                                     <small id="emailHelp" class="form-text text-muted">Capture the policy name.</small>

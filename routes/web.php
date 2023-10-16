@@ -6,6 +6,7 @@ use App\Http\Controllers\ClientsController;
 use App\Http\Controllers\PoliciesController;
 use App\Http\Controllers\IssuedCoversController;
 use App\Http\Controllers\ReportController;
+use App\Http\Controllers\TokenUpdateController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,7 +23,7 @@ use App\Http\Controllers\ReportController;
 //     return view('welcome');
 // });
 
-
+Route::get('/onfontoken', [TokenUpdateController::class, 'generatenewonfontoken'])->name('onfontoken');
 
 Route::get('/', [HomeController::class, 'dashboard'])->name('dashboard');
 

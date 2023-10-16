@@ -29,6 +29,7 @@ class PoliciesController extends Controller
             'policy_description' => 'required',
             'policy_duration' => 'required',
             'policy_cost' => 'required',
+            'policy_provider' => 'required',
             
         ]);
 
@@ -41,6 +42,7 @@ class PoliciesController extends Controller
                 'policy_description' => $request->input('policy_description'),
                 'policy_duration' => $request->input('policy_duration'),
                 'policy_cost' => $request->input('policy_cost'),
+                'policy_provider' => $request->input('policy_provider'),
             ]);
 
             // If the insertion is successful, return a success response

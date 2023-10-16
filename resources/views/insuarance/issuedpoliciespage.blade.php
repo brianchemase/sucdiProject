@@ -81,7 +81,7 @@
                                                     <select id="inputState" class="form-control" name="policy_id">
                                                         <option selected>Choose...</option>
                                                         @foreach ($policies as $policy)
-                                                            <option value="{{ $policy->id }}">{{ $policy->policy_name }} -{{ $policy->policy_code }}</option>
+                                                            <option value="{{ $policy->id }}">{{ $policy->policy_name }} - {{ $policy->policy_duration }} months - {{ $policy->policy_cost }}</option>
                                                         @endforeach
                                                     </select>
                                                 </div>
