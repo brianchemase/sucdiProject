@@ -71,5 +71,14 @@ class HomeController extends Controller
         return view ('insuarance.formpage')->with($data);
     }
 
+
+    public function login()
+    {
+
+
+
+        return view ('auth.login');
+    }
+
     
 }

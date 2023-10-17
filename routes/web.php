@@ -23,8 +23,13 @@ use App\Http\Controllers\TokenUpdateController;
 //     return view('welcome');
 // });
 
-Route::get('/onfontoken', [TokenUpdateController::class, 'generatenewonfontoken'])->name('onfontoken');
+Route::get('/', [HomeController::class, 'login'])->name('authlogin');
 
+Route::get('/onfontoken', [TokenUpdateController::class, 'generatenewonfontoken'])->name('onfontoken');
+Route::get('/sendsms', [TokenUpdateController::class, 'sendsms'])->name('sendonfontoken');
+
+
+Route::prefix('admin')->group(function () {
 Route::get('/', [HomeController::class, 'dashboard'])->name('dashboard');
 
 
@@ -78,3 +83,5 @@ Route::post('/SavePolicy', [PoliciesController::class, 'savepolicy'])->name('sav
 //policies pages
 Route::get('/IssuedCovers', [IssuedCoversController::class, 'issuedCovers'])->name('issuedcoverspages');//IssuedCoversController
 Route::post('/SaveIssuedCovers', [IssuedCoversController::class, 'saveissuedCover'])->name('saveissuedcover');
+
+});
