@@ -7,6 +7,7 @@ use App\Http\Controllers\PoliciesController;
 use App\Http\Controllers\IssuedCoversController;
 use App\Http\Controllers\ReportController;
 use App\Http\Controllers\TokenUpdateController;
+use App\Http\Controllers\ClaimController;
 
 /*
 |--------------------------------------------------------------------------
@@ -80,8 +81,13 @@ Route::get('/PoliciesTab', [PoliciesController::class, 'policiestab'])->name('po
 Route::post('/SavePolicy', [PoliciesController::class, 'savepolicy'])->name('savepolicy');//savepolicy
 
 
-//policies pages
+//covers pages
 Route::get('/IssuedCovers', [IssuedCoversController::class, 'issuedCovers'])->name('issuedcoverspages');//IssuedCoversController
 Route::post('/SaveIssuedCovers', [IssuedCoversController::class, 'saveissuedCover'])->name('saveissuedcover');
+
+//claims pages
+Route::get('/ClaimList', [ClaimController::class, 'RegisteredClaims'])->name('ClaimListpage');//registered claims
+Route::post('/SaveNewClaim', [ClaimController::class, 'saveclaim'])->name('saveclaim');
+
 
 });

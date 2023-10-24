@@ -1,4 +1,4 @@
-<div class="sidebar" data-color="green">
+<div class="sidebar" data-color="black">
       <!--
         Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"
     -->
@@ -9,7 +9,7 @@
       
         </a>
         <a href="{{route('dashboard')}}" class="simple-text logo-normal ">
-                    SUCDI Insuarance Agency LTD
+                    SUCDI Insurance Agency LTD
         </a>
       </div>
       <div class="sidebar-wrapper" id="sidebar-wrapper">
@@ -83,8 +83,8 @@
             </a>
           </li>
 
-          <li>
-            <a href="">
+          <li class="{{ Route::currentRouteName() === 'ClaimListpage' ? 'active' : '' }}" >
+            <a href="{{route('ClaimListpage')}}">
               <i class="now-ui-icons location_map-big"></i>
               <p>Claims</p>
             </a>
