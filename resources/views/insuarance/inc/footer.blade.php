@@ -4,7 +4,7 @@
             <ul>
               <li>
                 <a href="#">
-                  SUCDI Insuarance Agency LTD
+                  SUCDI Insurance Agency LTD
                 </a>
               </li>
               <li>
