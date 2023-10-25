@@ -11,8 +11,10 @@ class ClientsController extends Controller
 
     public function ClientsRegistration()
     {
+        $branches = DB::table('tbl_branches')->get(); // Fetch all client data
+
         $data=[
-            
+            'branches'=> $branches,
         ];
 
         return view ('insuarance.ClientsRegistration')->with($data);
@@ -30,6 +32,8 @@ class ClientsController extends Controller
             'client_residence' => 'required|string',
             'client_postal_address' => 'required',
             'client_postalCode' => 'required',
+            'client_kra' => 'required',
+            'branch_id' => 'required',
             //client_postalCode
             'client_town' => 'required|string',
             'client_country' => 'required|string',
@@ -51,6 +55,8 @@ class ClientsController extends Controller
             'country' => $validatedData['client_country'],
             'nationality' => $validatedData['client_nationality'],
             'client_type' => $validatedData['client_type'],
+            'branchcode' => $validatedData['branch_id'],
+            'kra_pin' => $validatedData['client_kra'],
         ]);
 
         if ($inserted) {

@@ -19,6 +19,7 @@ class HomeController extends Controller
         
         $active_policies="12";
         $active_policies = DB::table('policies')->count();
+        $active_branches = DB::table('tbl_branches')->count();
         $revenue_amount="352";
 
         $monthly_covers="6";
@@ -26,21 +27,43 @@ class HomeController extends Controller
         $monthly_expiering="2";// covers coming to an end
 
 
+        $branchDistribution = DB::table('tbl_branches as b')
+        ->leftJoin('clients_data as c', 'b.id', '=', 'c.branchcode')
+        ->select('b.branchName', DB::raw('COUNT(c.branchcode) as clientCount'))
+        ->groupBy('b.branchName')
+        ->orderBy('b.branchName')
+        ->get();
+        $chartData = [
+            ['Branch Name', 'Clients'],
+        ];
+        
+        foreach ($branchDistribution as $branch) {
+            $chartData[] = [$branch->branchName, $branch->clientCount];
+        }
+
+        $statusCounts = DB::table('issuedcovers')
+        ->select('status', DB::raw('COUNT(*) as status_count'))
+        ->groupBy('status')
+        ->get();
 
 
+        //return $branchDistribution;
+        
         $data=[
             'total_customers' => $total_customers,
             'active_covers' => $active_covers,
+            'active_branches' => $active_branches,
             'active_policies' => $active_policies,
             'revenue_amount' => $revenue_amount,
             'monthly_covers' => $monthly_covers,
             'monthly_revenue' => $monthly_revenue,
             'monthly_expiering' => $monthly_expiering,
+           // 'branchDistribution' => $branchDistribution,
 
 
         ];
 
-        return view ('insuarance.dashboard')->with($data);
+        return view ('insuarance.dashboard',compact('chartData','statusCounts'))->with($data);
     }
 
     public function table()

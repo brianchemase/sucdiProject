@@ -104,6 +104,27 @@
                 </div>
               </div>
         </div>
+        <div class="col-lg-4 col-sm-6">
+          <div class="card card-stats">
+              <div class="card-body ">
+                <div class="statistics statistics-horizontal">
+                          <div class="info info-horizontal">
+                              <div class="row">
+                                <div class="col-5">
+                                  <div class="icon icon-info icon-circle">
+                                      <i class="now-ui-icons ui-2_chat-round"></i>
+                                  </div>
+                                </div>
+                                <div class="col-7 text-right">
+                                  <h3 class="info-title">{{$active_branches}}</h3>
+                                  <h6 class="stats-title">Active Branches </h6>
+                                </div>
+                              </div>
+                          </div>
+                      </div>
+                </div>
+              </div>
+        </div>
 
         <div class="col-lg-4 col-sm-6">
           <div class="card card-stats">
@@ -136,16 +157,18 @@
       <div class="col-lg-6 col-sm-6">
             <div class="card  card-tasks">
               <div class="card-header ">
-                <h5 class="card-category">Title</h5>
-                <h4 class="card-title">Description</h4>
+                <h5 class="card-category">Status Covers Distribution</h5>
+                <h4 class="card-title">Status Distribution Pie</h4>
               </div>
               <div class="card-body ">
                 <div class="table-full-width table-responsive">
                 <canvas id="myChartProducts" style="width:100%;max-width:600px"></canvas>
 
                   <script>
-                  const xValues = ["Product 1", "Product 1", "Product 2", "Product 3", "Product 4"];
-                  const yValues = [55, 49, 44, 24, 15];
+                  //const xValues = ["Product 1", "Product 1", "Product 2", "Product 3", "Product 4"];
+                  //const yValues = [55, 49, 44, 24, 15];
+                  const xValues = @json($statusCounts->pluck('status')->toArray());
+                  const yValues = @json($statusCounts->pluck('status_count')->toArray());
                   const barColors = [
                     "#b91d47",
                     "#00aba9",
@@ -166,7 +189,7 @@
                     options: {
                       title: {
                         display: true,
-                        text: "World Wide Wine Production 2018"
+                        text: "Covers Status Distribution"
                       }
                     }
                   });
@@ -181,39 +204,33 @@
         <div class="col-lg-6 col-sm-6">
          <div class="card card-stats">
           <div class="card-header ">
-                <h5 class="card-category">Product Distribution</h5>
-                <h4 class="card-title">Pie Showing the distribution</h4>
+            
+                <h5 class="card-category">Clients Branch Distribution</h5>
+                
               </div>
               <div class="card-body ">
                 <div id="ProductDist" style="width:100%; max-width:600px; height:500px;"></div>
                 <script>
-                      google.charts.load('current', {'packages':['corechart']});
-                      google.charts.setOnLoadCallback(drawChart);
+                  google.charts.load('current', {'packages':['corechart']});
+                  google.charts.setOnLoadCallback(drawChart);
 
-                      function drawChart() {
+                  function drawChart() {
+                    const chartData = @json($chartData); // Use chartData instead of branchDistribution
 
-                      // Set Data
-                      const data = google.visualization.arrayToDataTable([
-                        ['Contry', 'Mhl'],
-                        ['Product 1',54.8],
-                        ['Product 2',48.6],
-                        ['Product 3 ',44.4],
-                        ['Product 4',23.9],
-                        ['Others',14.5]
-                      ]);
+                    const data = google.visualization.arrayToDataTable(chartData);
 
-                      // Set Options
-                      const options = {
-                        title:'Products Distribution',
-                        is3D:true
-                      };
+                    // Set Options
+                    const options = {
+                      title: 'Clients on Branch Distribution',
+                      is3D: true
+                    };
 
-                      // Draw
-                      const chart = new google.visualization.PieChart(document.getElementById('ProductDist'));
-                      chart.draw(data, options);
-
-                      }
+                    // Draw
+                    const chart = new google.visualization.PieChart(document.getElementById('ProductDist'));
+                    chart.draw(data, options);
+                  }
                 </script>
+
               </div>
             </div>
 

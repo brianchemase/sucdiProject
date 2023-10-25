@@ -48,17 +48,21 @@
                         <form action="{{ route('saveClient') }}" method="POST">
                             @csrf
                             <div class="form-row">
-                                <div class="form-group col-md-4">
+                                <div class="form-group col-md-3">
                                     <label for="names">Client Names</label>
                                     <input type="text" class="form-control" id="namesinput" name="client_names" placeholder="Enter Client Names" value="{{ old('client_names') }}">
                                 </div>
 
-                                <div class="form-group col-md-4">
+                                <div class="form-group col-md-3">
                                     <label for="inputidnumber">Client National ID/Passport No/Registration No</label>
                                     <input type="text" class="form-control" id="inputidnumber" name="national_id" placeholder="Enter Client Registration No" value="{{ old('national_id') }}">
                                 </div>
+                                <div class="form-group col-md-3">
+                                    <label for="KRA">Client KRA Pin</label>
+                                    <input type="text" class="form-control" id="namesinput" name="client_kra" placeholder="Enter Client KRA Pin" value="{{ old('client_kra') }}">
+                                </div>
 
-                                <div class="form-group col-md-4">
+                                <div class="form-group col-md-3">
                                     <label for="inputdob">Date of Birth/Registration Date</label>
                                     <input type="date" class="form-control" id="inputdob" name="date_reg" value="{{ old('date_reg') }}">
                                 </div>
@@ -109,6 +113,15 @@
                                     <select id="inputState" name="client_type" class="form-control">
                                         <option value="individual" selected>Individual</option>
                                         <option value="non-individual">Company</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group col-md-4">
+                                    <label for="inputState">Branch/Office</label>
+                                    <select id="inputState" name="branch_id" class="form-control">
+                                        @foreach($branches as $branch)
+                                            <option value="{{ $branch->id }}">{{ $branch->branchName }}</option>
+                                        @endforeach
                                     </select>
                                 </div>
                             </div>
