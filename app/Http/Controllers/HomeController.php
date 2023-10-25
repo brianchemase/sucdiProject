@@ -59,8 +59,6 @@ class HomeController extends Controller
             'monthly_revenue' => $monthly_revenue,
             'monthly_expiering' => $monthly_expiering,
            // 'branchDistribution' => $branchDistribution,
-
-
         ];
 
         return view ('insuarance.dashboard',compact('chartData','statusCounts'))->with($data);

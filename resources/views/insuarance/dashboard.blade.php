@@ -167,7 +167,13 @@
                   <script>
                   //const xValues = ["Product 1", "Product 1", "Product 2", "Product 3", "Product 4"];
                   //const yValues = [55, 49, 44, 24, 15];
+                  //const xValues = @json($statusCounts->pluck('status')->toArray());
+                  //const yValues = @json($statusCounts->pluck('status_count')->toArray());
+
                   const xValues = @json($statusCounts->pluck('status')->toArray());
+
+                  // Capitalize each value in the xValues array
+                  const xValuesCapitalized = xValues.map(value => value.toUpperCase());
                   const yValues = @json($statusCounts->pluck('status_count')->toArray());
                   const barColors = [
                     "#b91d47",
@@ -180,7 +186,7 @@
                   new Chart("myChartProducts", {
                     type: "doughnut",
                     data: {
-                      labels: xValues,
+                      labels: xValuesCapitalized,
                       datasets: [{
                         backgroundColor: barColors,
                         data: yValues

@@ -12,7 +12,7 @@
                     SUCDI Insurance Agency LTD
         </a>
       </div>
-      <div class="sidebar-wrapper" id="sidebar-wrapper">
+      <div class="sidebar-wrapper btn-outline-white" id="sidebar-wrapper">
         <ul class="nav">
           <li class="{{ Route::currentRouteName() === 'dashboard' ? 'active' : '' }}" >
             <a href="{{route('dashboard')}}">
@@ -20,19 +20,45 @@
               <p>Dashboard</p>
             </a>
           </li>
-          <li class="{{ Route::currentRouteName() === 'RegClients' ? 'active' : '' }}" >
+          <!-- <li class="{{ Route::currentRouteName() === 'RegClients' ? 'active' : '' }}" >
             <a href="{{route('RegClients')}}">
               <i class="now-ui-icons business_badge"></i>
               <p>Clients Register</p>
             </a>
+          </li> -->
+          <li>
+            <a data-toggle="collapse" href="#clientregister" class="" aria-expanded="true">
+              <i class="now-ui-icons business_badge"></i>
+              <p>
+              Clients <b class="caret"></b>
+              </p>
+            </a>
+            <div class="collapse" id="clientregister" style="">
+            <ul class="nav">
+            <li class="{{ Route::currentRouteName() === 'RegClients' ? 'active' : '' }}" >
+                <a href="{{route('RegClients')}}">
+                  <span class="sidebar-mini-icon">R</span>
+                  <span class="sidebar-normal"> Clients Register</span>
+                </a>
+              </li>
+              <li>
+                <a href="{{route('ListClients')}}">
+                  <span class="sidebar-mini-icon">CL</span>
+                  <span class="sidebar-normal"> Clients List </span>
+                </a>
+              </li>
+              
+              
+            </ul>
+            </div>
           </li>
 
-          <li class="{{ Route::currentRouteName() === 'ListClients' ? 'active' : '' }}" >
+          <!-- <li class="{{ Route::currentRouteName() === 'ListClients' ? 'active' : '' }}" >
             <a href="{{route('ListClients')}}">
               <i class="now-ui-icons design_bullet-list-67"></i>
               <p>Clients List</p>
             </a>
-          </li>
+          </li> -->
 
           <li class="{{ Route::currentRouteName() === 'SearchClient' ? 'active' : '' }}" >
             <a href="{{route('SearchClient')}}">
@@ -60,6 +86,33 @@
               <i class="now-ui-icons business_briefcase-24"></i>
               <p>Policies</p>
             </a>
+          </li>
+
+          <li>
+            <a data-toggle="collapse" href="#pagesExamples" class="" aria-expanded="true">
+              <i class="now-ui-icons design_image"></i>
+              <p>
+              Pages <b class="caret"></b>
+              </p>
+            </a>
+            <div class="collapse" id="pagesExamples" style="">
+            <ul class="nav">
+              <li>
+                <a href="../examples/pages/pricing.html">
+                  <span class="sidebar-mini-icon">P</span>
+                  <span class="sidebar-normal"> Pricing </span>
+                </a>
+              </li>
+              <li>
+                <a href="../examples/pages/rtl.html">
+                  <span class="sidebar-mini-icon">RS</span>
+                  <span class="sidebar-normal"> RTL Support </span>
+                </a>
+              </li>
+              
+              
+            </ul>
+            </div>
           </li>
 
           <li>
