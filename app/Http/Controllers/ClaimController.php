@@ -38,4 +38,61 @@ class ClaimController extends Controller
 
         return view ('insuarance.claimstable')->with($data);
     }
+
+    public function RegisterClaim(Request $request)
+    {
+
+        $result="";
+        $issuedCovers = DB::table('issuedcovers')
+        ->select('issuedcovers.*', 'clients_data.client_names')
+        ->join('clients_data', 'issuedcovers.customer_id', '=', 'clients_data.national_id')
+        ->get();
+
+        $issuedCovers = DB::table('issuedcovers')
+        ->select('issuedcovers.*', 'clients_data.*', 'policies.policy_code', 'policies.policy_name')
+        ->join('clients_data', 'issuedcovers.customer_id', '=', 'clients_data.national_id')
+        ->join('policies', 'issuedcovers.policyid', '=', 'policies.id')
+        ->get();
+        $clients = DB::table('clients_data')->get();
+
+         //return $clients_list;
+         if(isset($_GET['q']))
+         {    
+             $staff_id=$_GET['q'];
+             $results=$_GET['q'];
+
+            // return $staff_id;
+             $clients = DB::table('clients_data')->get();
+
+
+
+
+
+
+
+
+             $data=[
+                'issuedCovers'=> $issuedCovers,
+                'clientdata'=> $clients,
+                'results' => $results,
+                
+            ];
+    
+            return view ('insuarance.ClaimsRegistration')->with($data);
+
+         }
+
+       
+
+       
+        //return $issuedCovers;
+
+        $data=[
+            'issuedCovers'=> $issuedCovers,
+            'clientdata'=> $clients,
+            
+        ];
+
+        return view ('insuarance.ClaimsRegistration')->with($data);
+    }
 }

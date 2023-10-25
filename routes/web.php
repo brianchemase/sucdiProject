@@ -88,6 +88,7 @@ Route::post('/SaveIssuedCovers', [IssuedCoversController::class, 'saveissuedCove
 //claims pages
 Route::get('/ClaimList', [ClaimController::class, 'RegisteredClaims'])->name('ClaimListpage');//registered claims
 Route::post('/SaveNewClaim', [ClaimController::class, 'saveclaim'])->name('saveclaim');
+Route::get('/RegisterClaimList', [ClaimController::class, 'RegisterClaim'])->name('ClaimRegpage');//registered claims
 
 
 });
