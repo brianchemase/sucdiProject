@@ -53,16 +53,41 @@ class ClaimController extends Controller
         ->join('clients_data', 'issuedcovers.customer_id', '=', 'clients_data.national_id')
         ->join('policies', 'issuedcovers.policyid', '=', 'policies.id')
         ->get();
+       // return $issuedCovers;
+
         $clients = DB::table('clients_data')->get();
 
          //return $clients_list;
          if(isset($_GET['q']))
          {    
-             $staff_id=$_GET['q'];
+             $clientid=$_GET['q'];
              $results=$_GET['q'];
+
+             $selectedOption = $request->input('q');
+             $selectedValues = explode(',', $selectedOption);
+             $clientid = $selectedValues[0];
+             $refno = $selectedValues[1];
+
+             //return $refno;
 
             // return $staff_id;
              $clients = DB::table('clients_data')->get();
+
+             $clientData = DB::table('clients_data')
+                //->select('client_names')
+                ->where('id',  $clientid)
+                ->orderBy('id', 'desc')
+                ->first();
+
+
+                $coverdata = DB::table('issuedcovers')
+                ->select('issuedcovers.*', 'clients_data.*', 'policies.policy_code', 'policies.policy_name')
+                ->join('clients_data', 'issuedcovers.customer_id', '=', 'clients_data.national_id')
+                ->join('policies', 'issuedcovers.policyid', '=', 'policies.id')
+                ->where('issuedcovers.refno', $refno) // Add the WHERE condition
+                ->first();
+
+                //return $coverdata;
 
 
 
@@ -75,6 +100,8 @@ class ClaimController extends Controller
                 'issuedCovers'=> $issuedCovers,
                 'clientdata'=> $clients,
                 'results' => $results,
+                'clientData' => $clientData,
+                'coverdata' => $coverdata,
                 
             ];
     

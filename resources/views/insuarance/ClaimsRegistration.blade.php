@@ -19,7 +19,7 @@
                                         <select id="inputState" class="form-control" name="q">
                                         <option selected disabled>Choose...</option>
                                         @foreach($issuedCovers as $client)
-                                            <option value="{{ $client->id }}">{{ $client->client_names }} - {{ $client->national_id }} - {{ $client->plate_number }}</option>
+                                            <option value="{{ $client->id }},{{ $client->refno }}">{{ $client->client_names }} - {{ $client->national_id }} - {{ $client->plate_number }}</option>
                                         @endforeach
                                     </select>
                             </div>
@@ -80,76 +80,105 @@
                                     <div class="form-row">
                                         <div class="form-group col-md-3">
                                             <label for="names">Client Names</label>
-                                            <input type="text" class="form-control" id="namesinput" name="client_names" placeholder="Enter Client Names" value="{{ old('client_names') }}">
+                                            <input type="text" class="form-control" id="namesinput" name="client_names" placeholder="Enter Client Names" value="{{ $clientData->client_names }}">
                                         </div>
 
                                         <div class="form-group col-md-3">
                                             <label for="inputidnumber">Client National ID/Passport No/Registration No</label>
-                                            <input type="text" class="form-control" id="inputidnumber" name="national_id" placeholder="Enter Client Registration No" value="{{ old('national_id') }}">
+                                            <input type="text" class="form-control" id="inputidnumber" name="national_id" placeholder="Enter Client Registration No" value="{{ $clientData->national_id }}">
                                         </div>
                                         <div class="form-group col-md-3">
                                             <label for="KRA">Client KRA Pin</label>
-                                            <input type="text" class="form-control" id="namesinput" name="client_kra" placeholder="Enter Client KRA Pin" value="{{ old('client_kra') }}">
+                                            <input type="text" class="form-control" id="namesinput" name="client_kra" placeholder="Enter Client KRA Pin" value="{{ $clientData->kra_pin }}">
                                         </div>
 
                                         <div class="form-group col-md-3">
                                             <label for="inputdob">Date of Birth/Registration Date</label>
-                                            <input type="date" class="form-control" id="inputdob" name="date_reg" value="{{ old('date_reg') }}">
+                                            <input type="date" class="form-control" id="inputdob" name="date_reg" value="{{ $clientData->DOB }}">
                                         </div>
 
                                         <div class="form-group col-md-6">
                                             <label for="inputphone">Client Phone</label>
-                                            <input type="text" class="form-control" id="inputphone" name="client_phone" placeholder="Enter Client phone" value="{{ old('client_phone') }}">
+                                            <input type="text" class="form-control" id="inputphone" name="client_phone" placeholder="Enter Client phone" value="{{ $clientData->phone }}">
                                         </div>
 
                                         <div class="form-group col-md-6">
                                             <label for="inputEmail4">Client Email</label>
-                                            <input type="email" class="form-control" id="inputEmail4" name="client_email" placeholder="Enter Client Email address" value="{{ old('client_email') }}">
+                                            <input type="email" class="form-control" id="inputEmail4" name="client_email" placeholder="Enter Client Email address" value="{{ $clientData->email }}">
                                         </div>
                                     </div>
+                                    <hr>
                                     <div class="form-row">
-                                        <div class="form-group col-md-6">
-                                            <label for="inputresidence">Client Residence</label>
-                                            <input type="text" class="form-control" id="inputresidence" name="client_residence" placeholder="Enter Client Residence" value="{{ old('client_residence') }}">
+                                        <div class="form-group col-md-3">
+                                            <label for="inputresidence">Policy Type</label>
+                                            <input type="text" class="form-control" id="inputresidence" name="client_residence" placeholder="Enter Client Residence" value="{{ $coverdata->policytype }}">
                                         </div>
 
                                         <div class="form-group col-md-3">
-                                            <label for="inputpobox">Client PO Box</label>
-                                            <input type="text" class="form-control" id="inputpobox" name="client_postal_address" placeholder="PO BOX" value="{{ old('client_postal_address') }}">
+                                            <label for="inputpobox">Policy Start Date</label>
+                                            <input type="date" class="form-control" id="inputpobox" name="client_postal_address" placeholder="PO BOX" value="{{ $coverdata->start_date }}">
                                         </div>
 
                                         <div class="form-group col-md-3">
-                                            <label for="inputpostal">Client Postal Code</label>
-                                            <input type="text" class="form-control" id="inputpostal" name="client_postalCode" placeholder="------" value="{{ old('client_postalCode') }}">
+                                            <label for="inputpostal">Policy End Date</label>
+                                            <input type="date" class="form-control" id="inputpostal" name="client_postalCode" placeholder="------" value="{{ $coverdata->end_date }}">
+                                        </div>
+
+                                        <div class="form-group col-md-3">
+                                            <label for="inputpostal">Plate Number</label>
+                                            <input type="text" class="form-control" id="inputpostal" name="client_postalCode" placeholder="------" value="{{ $coverdata->plate_number }}">
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <label for="inputpostal">Chasis Number</label>
+                                            <input type="text" class="form-control" id="inputpostal" name="client_postalCode" placeholder="------" value="{{ $coverdata->chasis_number }}">
                                         </div>
 
                                         <div class="form-group col-md-5">
-                                            <label for="inputtown">Town</label>
-                                            <input type="text" class="form-control" id="inputtown" name="client_town" placeholder="Enter Client Town" value="{{ old('client_town') }}">
-                                        </div>
-
-                                        <div class="form-group col-md-4">
-                                            <label for="inputCountry">Country</label>
-                                            <input type="text" class="form-control" id="inputCountry" name="client_country"  value="{{ old('client_country') }}">
+                                            <label for="inputtown">Cover Details</label>
+                                            <input type="text" class="form-control" id="inputtown" name="client_town" placeholder="Enter Client Town" value="{{ $coverdata->coverdetails }}">
                                         </div>
 
                                         <div class="form-group col-md-3">
-                                            <label for="inputNationality">Nationality</label>
-                                            <input type="text" class="form-control" id="inputNationality" name="client_nationality" value="{{ old('client_nationality') }}">
+                                            <label for="inputCountry">Policy ID</label>
+                                            <input type="text" class="form-control" id="inputCountry" name="client_country"  value="{{ $coverdata->policyid }}">
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="inputCountry">Policy Ref No</label>
+                                            <input type="text" class="form-control" id="inputCountry" name="refno"  value="{{ $coverdata->refno }}">
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="inputCountry">Policy Code</label>
+                                            <input type="text" class="form-control" id="inputCountry" name="client_country"  value="{{ $coverdata->policy_code }}">
                                         </div>
 
-                                        <div class="form-group col-md-4">
-                                            <label for="inputState">Client Type</label>
-                                            <select id="inputState" name="client_type" class="form-control">
-                                                <option value="individual" selected>Individual</option>
-                                                <option value="non-individual">Company</option>
-                                            </select>
                                         </div>
-
                                         
+
+                                        <hr>
+                                        <div class="form-row">
+
+                                        <div class="form-group col-md-3">
+                                            <label for="inputNationality">Claim Date</label>
+                                            <input type="date" class="form-control" id="inputNationality" name="claimDate" value="{{ old('claimDate') }}">
+                                        </div>
+
+                                        <div class="form-group col-md-3">
+                                            <label for="inputNationality">Claim Amount</label>
+                                            <input type="number" class="form-control" id="inputNationality" name="claimAmount" value="{{ old('claimAmount') }}">
+                                        </div>
+
+                                        <div class="form-group col-md-6">
+                                            <label for="inputNationality">Claim Description</label>
+                                            <input type="text" class="form-control" id="inputNationality" name="claimdescription" value="{{ old('claimdescription') }}">
+                                        </div>
+
+                                        <div class="form-group col-md-3">
+                                            <label for="inputNationality">Claim Registered by</label>
+                                            <input type="number" class="form-control" id="inputNationality" name="agent" value="System Admin">
+                                        </div>                                  
                                     </div>
                                     
-                                    <button type="submit" class="btn btn-primary">Save Client Data</button>
+                                    <button type="submit" class="btn btn-primary">Save Claim Record</button>
                                 </form>
 
                             </div>
