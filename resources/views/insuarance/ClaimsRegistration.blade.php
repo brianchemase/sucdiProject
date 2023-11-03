@@ -43,7 +43,7 @@
 
                                         <script>
                                             window.addEventListener('DOMContentLoaded', function() {
-                                                swal("Client Registered", "{{ $message }}", "success");
+                                                swal("Claim Registered", "{{ $message }}", "success");
                                             });
                                         </script>
 
@@ -75,7 +75,7 @@
                                 <h4 class="card-title"> Clients Claim Registration</h4>
                             </div>
                             <div class="card-body">
-                                <form action="{{ route('saveClient') }}" method="POST">
+                                <form action="{{ route('saveclaim') }}" method="POST">
                                     @csrf
                                     <div class="form-row">
                                         <div class="form-group col-md-3">
@@ -140,7 +140,7 @@
 
                                         <div class="form-group col-md-3">
                                             <label for="inputCountry">Policy ID</label>
-                                            <input type="text" class="form-control" id="inputCountry" name="client_country"  value="{{ $coverdata->policyid }}">
+                                            <input type="text" class="form-control" id="inputCountry" name="policyid"  value="{{ $coverdata->policyid }}">
                                         </div>
                                         <div class="form-group col-md-6">
                                             <label for="inputCountry">Policy Ref No</label>

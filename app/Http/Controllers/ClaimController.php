@@ -28,8 +28,6 @@ class ClaimController extends Controller
 
         //return $result;
 
-
-
         $data=[
             //'clientdata'=> $clients,
             'clientdata'=> $result,
@@ -68,9 +66,6 @@ class ClaimController extends Controller
              $clientid = $selectedValues[0];
              $refno = $selectedValues[1];
 
-             //return $refno;
-
-            // return $staff_id;
              $clients = DB::table('clients_data')->get();
 
              $clientData = DB::table('clients_data')
@@ -87,39 +82,64 @@ class ClaimController extends Controller
                 ->where('issuedcovers.refno', $refno) // Add the WHERE condition
                 ->first();
 
-                //return $coverdata;
-
-
-
-
-
-
-
-
              $data=[
                 'issuedCovers'=> $issuedCovers,
                 'clientdata'=> $clients,
                 'results' => $results,
                 'clientData' => $clientData,
-                'coverdata' => $coverdata,
-                
+                'coverdata' => $coverdata,     
             ];
     
             return view ('insuarance.ClaimsRegistration')->with($data);
-
          }
-
-       
-
        
         //return $issuedCovers;
 
         $data=[
             'issuedCovers'=> $issuedCovers,
             'clientdata'=> $clients,
-            
         ];
 
         return view ('insuarance.ClaimsRegistration')->with($data);
+    }
+
+    public function saveclaim(Request $request)
+    {
+        // Validate the request data
+        $request->validate([
+            'claimDate' => 'required|date',
+            'claimAmount' => 'required|numeric',
+            'claimdescription' => 'required|string',
+            // You may add more validation rules as needed
+        ]);
+
+
+        $policynumber = DB::table('issuedcovers')
+        ->where('refno', $request->input('refno'))
+        ->value('id');
+
+        // Save the data to the "claims" table using the DB facade
+        $claimStatus = 'pending'; // Default status
+        $result = DB::table('claims')->insert([
+            'PolicyID' => $policynumber,
+            'ClaimDate' => $request->input('claimDate'),
+            'ClaimStatus' => $claimStatus,
+            'ClaimDetails' => $request->input('claimdescription'),
+            'ClaimAmount' => $request->input('claimAmount'),
+        ]);
+        
+        if ($result) {
+            // Update the issuedcovers table
+            DB::table('issuedcovers')
+            ->where('refno', $refno)
+            ->update(['status' => 'claim']);
+            // Data was inserted successfully
+            return back()->with('success', 'Claim record saved successfully.');
+           
+        } else {
+            // Data insertion failed
+            return back()->with('error', 'Failed to save claim record. Please try again or contact Admin.');
+        }
+        
     }
 }
