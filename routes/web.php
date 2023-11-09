@@ -92,3 +92,6 @@ Route::get('/RegisterClaimList', [ClaimController::class, 'RegisterClaim'])->nam
 
 
 });
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

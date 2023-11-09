@@ -106,4 +106,38 @@ class TokenUpdateController extends Controller
 
 
     }
+
+    public function deliversms()
+    {
+        $phone="0725670606";// Brian
+        $client_fname = strtok($applicant, ' ');
+            $tel= substr($phone, 1);
+            $code="254";
+            $to = $code.$tel;
+            $message="This is a test sms.";
+
+        $ApiKey = 'mrbZnidZL1aisGhRem5yQ38v1DjFZXdFamYpRr21YtQ=';
+        $ClientId = 'ae5e5440-3968-4422-8018-feb27cebd201';
+        $SenderId = 'SUCDIAGENCY';
+        $AccessKey = 'mwNYuBUe0fxbYqDyyYkz9gsgNIH5cP0H';
+        $curl = curl_init();
+        curl_setopt_array($curl, array(
+        CURLOPT_URL => "https://api.onfonmedia.co.ke/v1/sms/SendBulkSMS",
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_ENCODING => "",
+        CURLOPT_MAXREDIRS => 10,
+        CURLOPT_TIMEOUT => 30,
+        CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+        CURLOPT_CUSTOMREQUEST => "POST",
+        CURLOPT_POSTFIELDS => "{\n  \"SenderId\": \"".$SenderId."\",\n  \"MessageParameters\": [\n    {\n      \"Number\": \"".$to."\",\n      \"Text\": \"".$message."\"\n    }\n  ],\n  \"ApiKey\": \"".$ApiKey."\",\n  \"ClientId\": \"".$ClientId."\"\n}",
+        CURLOPT_HTTPHEADER => array(
+            "accesskey: ".$AccessKey."",
+            "cache-control: no-cache",
+            "content-type: application/json"
+        ),
+        ));
+        $response = curl_exec($curl);
+        $err = curl_error($curl);
+        curl_close($curl);
+    }
 }
