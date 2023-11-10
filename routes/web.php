@@ -20,6 +20,8 @@ use App\Http\Controllers\ClaimController;
 |
 */
 
+//https://www.cambotutorial.com/article/laravel-9-login-multiple-roles-using-custom-middleware
+
 // Route::get('/', function () {
 //     return view('welcome');
 // });
@@ -92,6 +94,10 @@ Route::get('/RegisterClaimList', [ClaimController::class, 'RegisterClaim'])->nam
 
 
 });
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
