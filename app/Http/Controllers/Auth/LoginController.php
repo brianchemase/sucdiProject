@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Http\Request;
 
 class LoginController extends Controller
 {
@@ -51,7 +52,7 @@ class LoginController extends Controller
         {
             if (auth()->user()->role == 'admin') 
             {
-              return redirect()->route('admin.home');
+              return redirect()->route('dashboard');
             }
             else if (auth()->user()->role == 'editor') 
             {
@@ -64,9 +65,9 @@ class LoginController extends Controller
         }
         else
         {
-            return redirect()
-            ->route('login')
-            ->with('error','Incorrect email or password!.');
+          //return "error";
+          return back()->with('error', 'Incorrect email or password!.');
+           // return redirect()->route('login')->with('error','Incorrect email or password!.');
         }
     }
 }

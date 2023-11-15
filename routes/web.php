@@ -8,6 +8,7 @@ use App\Http\Controllers\IssuedCoversController;
 use App\Http\Controllers\ReportController;
 use App\Http\Controllers\TokenUpdateController;
 use App\Http\Controllers\ClaimController;
+use App\Http\Controllers\DashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,9 +32,13 @@ Route::get('/', [HomeController::class, 'login'])->name('authlogin');
 Route::get('/onfontoken', [TokenUpdateController::class, 'generatenewonfontoken'])->name('onfontoken');
 Route::get('/sendsms', [TokenUpdateController::class, 'sendsms'])->name('sendonfontoken');
 
+Auth::routes();
 
+Route::middleware(['auth','user-role:admin'])->group(function()
+{
+    
 Route::prefix('admin')->group(function () {
-Route::get('/', [HomeController::class, 'dashboard'])->name('dashboard');
+Route::get('/', [DashboardController::class, 'dashboard'])->name('dashboard');
 
 
 Route::get('/cleareverything', function () {
@@ -51,13 +56,13 @@ Route::get('/cleareverything', function () {
 });
 
 //table
-Route::get('/tables', [HomeController::class, 'table'])->name('table');
+Route::get('/tables', [DashboardController::class, 'table'])->name('table');
 
 //blank
-Route::get('/blank', [HomeController::class, 'blank'])->name('blank');
+Route::get('/blank', [DashboardController::class, 'blank'])->name('blank');
 
 //form
-Route::get('/form', [HomeController::class, 'form'])->name('form');
+Route::get('/form', [DashboardController::class, 'form'])->name('form');
 
 
 Route::get('IssuedCoversPDF', [ReportController::class, 'issuedCovers'])->name('IssuedCoversPDF');// issued covers pdf report
@@ -94,10 +99,9 @@ Route::get('/RegisterClaimList', [ClaimController::class, 'RegisterClaim'])->nam
 
 
 });
-Auth::routes();
+});
+
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
