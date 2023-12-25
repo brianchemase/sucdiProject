@@ -12,6 +12,7 @@
         "laravel/sanctum": "^3.0",
         "laravel/tinker": "^2.7",
         "laravel/ui": "^4.2",
+        "spatie/laravel-backup": "^8.2",
         "spatie/laravel-permission": "^6.0"
     },
     "require-dev": {

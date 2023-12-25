@@ -9,6 +9,7 @@ use App\Http\Controllers\ReportController;
 use App\Http\Controllers\TokenUpdateController;
 use App\Http\Controllers\ClaimController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\NotificationsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,6 +32,9 @@ Route::get('/', [HomeController::class, 'login'])->name('authlogin');
 
 Route::get('/onfontoken', [TokenUpdateController::class, 'generatenewonfontoken'])->name('onfontoken');
 Route::get('/sendsms', [TokenUpdateController::class, 'sendsms'])->name('sendonfontoken');
+Route::get('/Tumasendsms', [TokenUpdateController::class, 'deliversms'])->name('sendsms');
+
+Route::get('/BulkNotifications', [NotificationsController::class, 'SendSMSNotifications'])->name('sendbulksms');
 
 Auth::routes();
 

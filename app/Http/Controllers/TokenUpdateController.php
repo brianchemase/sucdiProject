@@ -109,12 +109,37 @@ class TokenUpdateController extends Controller
 
     public function deliversms()
     {
-        $phone="0725670606";// Brian
+        //$phone="0725670606";// Brian
+        $applicant="Name";
         $client_fname = strtok($applicant, ' ');
-            $tel= substr($phone, 1);
-            $code="254";
-            $to = $code.$tel;
+       
+            $phone = "725670606"; // Brian
             $message="This is a test sms.";
+            
+            $tel = $phone; // Copy the original phone number
+            $code = "254";
+
+            // Check if the phone number starts with "254"
+            if (substr($tel, 0, 3) !== "254") {
+                // Check if the phone number starts with "07"
+                if (substr($tel, 0, 2) === "07") {
+                    // Remove the first zero and add the country code
+                    $tel = $code . substr($tel, 1);
+                } else {
+                    // Add the country code to other cases
+                    $tel = $code . $tel;
+                }
+            }
+
+            $to = $tel;
+            
+
+            return $to;
+
+
+
+
+          
 
         $ApiKey = 'mrbZnidZL1aisGhRem5yQ38v1DjFZXdFamYpRr21YtQ=';
         $ClientId = 'ae5e5440-3968-4422-8018-feb27cebd201';
@@ -139,5 +164,7 @@ class TokenUpdateController extends Controller
         $response = curl_exec($curl);
         $err = curl_error($curl);
         curl_close($curl);
+
+        return $response;
     }
 }
