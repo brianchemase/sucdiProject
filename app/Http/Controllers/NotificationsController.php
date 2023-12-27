@@ -11,8 +11,10 @@ class NotificationsController extends Controller
     public function SendSMSNotifications()
     {
 
-        //$phone="0725670606";
-        //$message="Dear Client, Here is your message";
+        $phone="0768459127";
+        $message="Dear Client, Here is your message";
+
+        //$Notify = $this->SendNotification($phone, $message);
       
 
        $data = DB::table('tbl_clients_data')
@@ -37,9 +39,11 @@ class NotificationsController extends Controller
                 Garissa Office, Gateway Bus Station, Kilas Building Next To Getune Academy\n 
                 Tel No 0724 708020";
 
-                 // $Notify = $this->SendNotification($phone, $message);
-                echo $message;
+                  $Notify = $this->SendNotification($phone, $message);
+                //echo $message;
             }
+
+            return "SMS sent";
 
 
     }
@@ -91,6 +95,6 @@ class NotificationsController extends Controller
                 $err = curl_error($curl);
                 curl_close($curl);
 
-                return $response;
+                //return $response;
     }
 }
