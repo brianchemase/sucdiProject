@@ -35,6 +35,7 @@ Route::get('/sendsms', [TokenUpdateController::class, 'sendsms'])->name('sendonf
 Route::get('/Tumasendsms', [TokenUpdateController::class, 'deliversms'])->name('sendsms');
 
 Route::get('/BulkNotifications', [NotificationsController::class, 'SendSMSNotifications'])->name('sendbulksms');
+Route::get('/ThanksNotifications', [NotificationsController::class, 'SendThanksSMSNotifications'])->name('sendthanksbulksms');
 
 Auth::routes();
 

@@ -48,10 +48,30 @@ class NotificationsController extends Controller
 
     }
 
+    public function SendThanksSMSNotifications()
+    {
+        $data = DB::table('tbl_client_to_notify')
+        //->select('NAMES', 'phone', 'expirydate','PLATE')
+        ->get();
+
+        foreach ($data as $item) {
+
+            $phone = $item->phone;
+            $message= "Dear Client,\nThank You for Insuring your Vehicle with Sucdi Insurance Agency\nGarissa Office 0724 708020\nHagader Office 0714 389755\nDagahaley Office  0740 207080";
+            $Notify = $this->SendNotification($phone, $message);
+            echo "$message<br>";
+
+        }
+
+        return "Notifications sent";
+
+    }
+
 
 
     public function SendNotification($phone, $message)
     {
+        set_time_limit(10000); // Set to a higher value than the default
        
         $tel = $phone; // Copy the original phone number
         $code = "254";
