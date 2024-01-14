@@ -51,6 +51,12 @@ class IssuedCoversController extends Controller
         ]);
 
        // return $request->all();
+       $year = date('Y');
+        $month = date('m');
+        $date = date('d');
+        $randomNumber = mt_rand(1, 500000);
+
+        $RefNo = $year . $month . $date . $randomNumber;
 
         try {
 
@@ -63,6 +69,7 @@ class IssuedCoversController extends Controller
             DB::table('issuedcovers')->insert([
                 'policyid' => $request->input('policy_id'),
                 'customer_id' => $request->input('client_id'),
+                'refno' => $RefNo,
                 'start_date' => $startDate,
                 'end_date' => $endDate, // Save the calculated end_date
                 'chasis_number' => $request->input('chasis_number'),
