@@ -137,6 +137,13 @@
               </li>
 
               <li>
+                <a href="{{route('getDeclarations')}}" target="_blank">
+                  <span class="sidebar-mini-icon">DR</span>
+                  <span class="sidebar-normal"> Declarations Report </span>
+                </a>
+              </li>
+
+              <li>
                 <a href="">
                   <i class="now-ui-icons business_chart-bar-32"></i>
                   <p>Transactions</p>

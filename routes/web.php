@@ -37,6 +37,8 @@ Route::get('/Tumasendsms', [TokenUpdateController::class, 'deliversms'])->name('
 Route::get('/BulkNotifications', [NotificationsController::class, 'SendSMSNotifications'])->name('sendbulksms');
 Route::get('/ThanksNotifications', [NotificationsController::class, 'SendThanksSMSNotifications'])->name('sendthanksbulksms');
 
+
+
 Auth::routes();
 
 Route::middleware(['auth','user-role:admin'])->group(function()
@@ -96,6 +98,14 @@ Route::middleware(['auth','user-role:admin'])->group(function()
         //covers pages
         Route::get('/IssuedCovers', [IssuedCoversController::class, 'issuedCovers'])->name('issuedcoverspages');//IssuedCoversController
         Route::post('/SaveIssuedCovers', [IssuedCoversController::class, 'saveissuedCover'])->name('saveissuedcover');
+
+
+        //declarations reports
+        Route::get('GenerateDeclarations', [ReportController::class, 'generateDeclarations'])->name('getDeclarations');// filter declarations report
+        Route::any('Declarations', [ReportController::class, 'Declarations'])->name('DeclarationsPDF');// Declarations covers pdf report
+      
+
+
 
         //claims pages
         Route::get('/ClaimList', [ClaimController::class, 'RegisteredClaims'])->name('ClaimListpage');//registered claims
