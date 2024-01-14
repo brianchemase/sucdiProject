@@ -63,15 +63,13 @@ class IssuedCoversController extends Controller
             $startDate = Carbon::parse($request->input('start_date'));
             $endDate = $startDate->copy()->addYear();
 
-
-
-
             DB::table('issuedcovers')->insert([
                 'policyid' => $request->input('policy_id'),
                 'customer_id' => $request->input('client_id'),
                 'refno' => $RefNo,
                 'start_date' => $startDate,
                 'end_date' => $endDate, // Save the calculated end_date
+                'plate_number' => $request->input('plate_number'),
                 'chasis_number' => $request->input('chasis_number'),
                 'status' => 'running',
                 'PremiumAmount' => $request->input('amountfee'),
