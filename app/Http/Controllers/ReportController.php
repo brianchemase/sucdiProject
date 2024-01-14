@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Exports\DeclarationsExport;
 //use PDF;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Support\Facades\DB;
+use Maatwebsite\Excel\Facades\Excel;
 
 class ReportController extends Controller
 {
@@ -83,18 +85,13 @@ class ReportController extends Controller
             ->whereYear('issuedcovers.start_date', $year)
             ->whereMonth('issuedcovers.start_date', $month)
             ->get();
-        //$month=date('M');
-       // $year=date('Y');
 
-      // $month = $request->input('month') ?? date('M');
-      // $month = $request->filled('month') ? $request->input('month') : date('M');
+    
        $monthName = date('F', mktime(0, 0, 0, (int)$month, 1));
 
-
-        
-
         $data = [
-            'title' => 'DAILY DECLARATION OF USED PRIVATE, PSV AND COMMERCIAL CERTIFICATE ',
+            'title' => 'MONTHLY DECLARATION OF USED COVERS: PRIVATE, PSV AND COMMERCIAL CERTIFICATES',
+            'institute' => 'SUCDI INSURANCE AGENCY LTD',
             'date' => date('d/m/Y'),
             'month' => $monthName,
             'year' => $year,
@@ -107,5 +104,36 @@ class ReportController extends Controller
             $pdf->setPaper('L', 'landscape');
               return $pdf->stream("Declatations.pdf");
 
+    }
+
+    public function exportToExcel($month, $year)
+    {
+        // Fetch your data based on $month and $year
+        $title = 'MONTHLY DECLARATION OF USED COVERS: PRIVATE, PSV AND COMMERCIAL CERTIFICATES';
+        $pagetitle = trim($title);
+        $pagetitle = preg_replace('/[^\w]/', '_', $title); // Replace non-alphanumeric characters with underscores
+
+
+        $institute = 'SUCDI INSURANCE AGENCY LTD';
+        $date = date('d/m/Y');
+
+        $results = DB::table('issuedcovers')
+        ->select('issuedcovers.*', 'clients_data.client_names', 'clients_data.national_id', 'clients_data.*', 'policies.policy_code', 'policies.policy_name')
+        ->join('clients_data', 'issuedcovers.customer_id', '=', 'clients_data.national_id')
+        ->join('policies', 'issuedcovers.policyid', '=', 'policies.id')
+        ->whereYear('issuedcovers.start_date', $year)
+        ->whereMonth('issuedcovers.start_date', $month)
+        ->get();
+
+
+        return Excel::download(new DeclarationsExport(
+            $results, 
+            $pagetitle, 
+            $institute, 
+            $date,
+            $month, 
+            $year
+        ), 'file.xlsx');
+        //return Excel::download(new DeclarationsExport($results), 'your_filename.xlsx');
     }
 }

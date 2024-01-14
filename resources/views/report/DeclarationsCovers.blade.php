@@ -10,7 +10,11 @@
     <div class="row">
     <div style="text-align: center;">
         <img src="{{public_path('logo/logo.png')}}" alt="logo" width="50" height="60">
-        <h3>{{$title}}</h3>
+        <h3>TRIDENT INSURANCE COMPANY LIMITED</h3>
+        <h5>{{$title}}</h5>
+    </div>
+    <div> 
+      <h4>{{$institute}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Date: {{$month}} Declaration</h4>
     </div>
    
       <div class="col-lg-12" style="margin-top: 15px ">     
@@ -27,15 +31,18 @@
       <thead class="thead-dark">
         <th>#</th>
         <th>CERT NO</th>
-        <th>Client Name</th>
-        <th>Plate No.</th>
+        <th>NAME OF THE INSURER</th>
+        <th>REG No.</th>
         <th>Start Date</th>
         <th>End Date</th>
         <th>Policy Number</th>
+        <th>DURATION</th>
         <th>Cover</th>
-        <th>Amount</th>
+        <th>SUM INSURED</th>
        
-        <th>Chasis No</th>
+        <th>CHASIS No</th>
+        <th>KRA No</th>
+        <th>ID No</th>
       </thead>
       @php
           $totalPremiumAmount = 0; // Initialize the variable to store the total premium amount
@@ -49,20 +56,23 @@
         <td>{{ \Carbon\Carbon::parse($data->start_date)->format('jS F Y') }}</td>
         <td>{{ \Carbon\Carbon::parse($data->end_date)->format('jS F Y') }}</td>
         <td>{{ $data->policy_code }}</td>
+        <td> </td>
         <td>Cover</td>
-        <td>KES {{ number_format($data->PremiumAmount) }}</td>
+        <td>{{ number_format($data->PremiumAmount) }}</td>
         <td>Chasis No</td>
+        <td></td>
+        <td>{{ $data->national_id }}</td>
       </tr>
       @php
         $totalPremiumAmount += $data->PremiumAmount; // Add the current PremiumAmount to the total
       @endphp
       @endforeach
       <tr>
-          <td colspan="3">Officer Names</td>
+          <td colspan="4">Officer Names</td>
           <td colspan="3">Date of Declatation: {{$date}}</td>
 
           <td colspan="2">Total Premium Amount:</td>
-          <td colspan="2">KES {{ number_format($totalPremiumAmount) }}</td>
+          <td colspan="4">{{ number_format($totalPremiumAmount) }}</td>
       </tr>
     </table>
   </div>
