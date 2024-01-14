@@ -50,7 +50,7 @@
                                         </div>
                                         
                                         <div class="col-auto">
-                                        <button type="submit" class="btn btn-primary mb-2">Submit</button>
+                                        <button type="submit" class="btn btn-primary mb-2">Generate Declaration</button>
                                         </div>
                                     </div>
                                 </form>
