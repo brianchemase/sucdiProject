@@ -39,7 +39,7 @@ class NotificationsController extends Controller
                 Garissa Office, Gateway Bus Station, Kilas Building Next To Getune Academy\n 
                 Tel No 0724 708020";
 
-                  $Notify = $this->SendNotification($phone, $message);
+                  //$Notify = $this->SendNotification($phone, $message);
                 //echo $message;
             }
 
@@ -53,13 +53,29 @@ class NotificationsController extends Controller
         $data = DB::table('tbl_client_to_notify')
         //->select('NAMES', 'phone', 'expirydate','PLATE')
         ->get();
+       // return $data;
 
         foreach ($data as $item) {
 
             $phone = $item->phone;
-            $message= "Dear Client,\nThank You for Insuring your Vehicle with Sucdi Insurance Agency\nGarissa Office 0724 708020\nHagader Office 0714 389755\nDagahaley Office  0740 207080";
-            $Notify = $this->SendNotification($phone, $message);
-            echo "$message<br>";
+            $names = $item->names;
+            // Get the first name
+            $words = explode(' ', $names);
+            $firstName = $words[0];
+
+            // Convert everything to lowercase
+            $lowercaseNames = strtolower($names);
+
+            // Capitalize the first letter
+            $clientname = ucfirst($lowercaseNames);
+            $vehicleNumber = $item->plate;
+            $expiryDate = $item->expdate;
+            //$message= "Dear Client,\nThank You for Insuring your Vehicle with Sucdi Insurance Agency\nGarissa Office 0724 708020\nHagader Office 0714 389755\nDagahaley Office  0740 207080";
+
+            $message = "Dear $clientname, Sucdi Insurance Agency wishes to inform you that, the insurance of your $vehicleNumber is expiring on $expiryDate\n\nKindly insure your vehicle with an affordable price with Sucdi Insurance Agency LTD\n\nGarissa Office 0724 708020\nHagadera Office 071438 9755\nDagahaley Office 074020 7080\n\nMain Office Garissa: Kilas Building, Gateway Bus Station, Next To Getune Academy\nTel No 0724 708020\n\nBy Ahmey Wali\nhttps://wa.me/message/7HJVF3N6QBCGE1";
+           // $Notify = $this->SendNotification($phone, $message);
+                echo "$message<br>";
+            //echo "$vehicleNumber<br>";
 
         }
 

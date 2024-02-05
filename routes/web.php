@@ -86,6 +86,12 @@ Route::middleware(['auth','user-role:admin'])->group(function()
 
         //Register Clients
         Route::get('/ListClients', [ClientsController::class, 'ClientsList'])->name('ListClients');
+        //edit client details
+        Route::get('/edit-client/{id}', [ClientsController::class, 'ClientsRegistrationedit'])->name('editClient');
+
+        Route::put('/update-client/{id}',  [ClientsController::class, 'ClientsRegistrationupdate'])->name('updateClient');
+
+
 
         //search Registered Clients
         Route::get('/SearchClients', [ClientsController::class, 'SearchClient'])->name('SearchClient');

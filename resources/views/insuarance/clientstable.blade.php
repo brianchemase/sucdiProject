@@ -5,6 +5,16 @@
 @section('content')
 
 <div class="content">
+                        @if ($message = Session::get('success'))
+
+                        <script>
+                            window.addEventListener('DOMContentLoaded', function() {
+                                swal("Client Update Registered", "{{ $message }}", "success");
+                            });
+                        </script>
+
+      
+                        @endif
         <div class="row">
           <div class="col-md-12">
             <div class="card">
@@ -47,7 +57,10 @@
                                 <td>{{ $client->home_residence }}</td>                                
                                 <td>{{ $client->city }}</td>                                
                                 <td>{{ $client->client_type }}</td>
-                                <td> </td>
+                                <td>
+                                <a href="{{ route('editClient', $client->id) }}" class="btn btn-warning">Edit</a>
+                                  
+                                </td>
                             </tr>
                         @endforeach
                     </tbody>

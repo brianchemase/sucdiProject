@@ -69,6 +69,63 @@ class ClientsController extends Controller
     }
 
 
+    public function ClientsRegistrationedit($id)
+    {
+        $client = DB::table('clients_data')->where('id', $id)->first(); // Replace 'clients' with your actual table name
+        $branches = DB::table('tbl_branches')->get(); // Fetch all client data
+
+        //return $client;
+
+        $data=[
+            'branches'=> $branches,
+            'client'=> $client,
+        ];
+
+        return view ('insuarance.ClientsRegistrationupdate')->with($data);
+    }
+
+
+    public function ClientsRegistrationupdate(Request $request, $id)
+    {
+        try {
+            // Update the validated data in the database using DB facade
+            $affectedRows = DB::table('clients_data')
+                ->where('id', $id)
+                ->update([
+                    'client_names' => $request->input('client_names'),
+                    'national_id' => $request->input('national_id'),
+                    'DOB' => $request->input('date_reg'),
+                    'phone' => $request->input('client_phone'),
+                    'email' => $request->input('client_email'),
+                    'home_residence' => $request->input('client_residence'),
+                    'postal_address' => $request->input('client_postal_address'),
+                    'postal_code' => $request->input('client_postalCode'),
+                    'city' => $request->input('client_town'),
+                    'country' => $request->input('client_country'),
+                    'nationality' => $request->input('client_nationality'),
+                    //'client_type' => $request->input('client_type'),
+                    'branchcode' => $request->input('branch_id'),
+                    'kra_pin' => $request->input('client_kra'),
+                ]);
+    
+            if ($affectedRows > 0) {
+                // Redirect with success message
+                return redirect()->route('ListClients')->with('success', 'Client updated successfully');
+            } else {
+                // Redirect back with an error message
+                return redirect()->back()->with('error', 'Failed to update client. No changes detected or there was an issue.');
+            }
+        } catch (\Exception $e) {
+            // Handle any exceptions
+            return redirect()->back()->with('error', 'An error occurred: ' . $e->getMessage());
+        }
+    }
+    
+
+
+
+
+
 
     public function ClientsList()
     {
