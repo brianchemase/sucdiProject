@@ -17,13 +17,6 @@
                                     });
                                 </script>
 
-                        <!-- <div class="alert alert-success alert-dismissible" role="alert">
-                            <button type="button" class="btn-close" data-dismiss="alert" aria-label="Close"></button>
-                            <div class="alert-message">
-                                <strong>{{ $message }}</strong> 
-                                
-                            </div>
-                        </div> -->
                         @endif
 
                         @if (count($errors) > 0)
