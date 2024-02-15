@@ -67,12 +67,17 @@
                                     <input type="date" class="form-control" id="inputdob" name="date_reg" value="{{ old('date_reg') }}">
                                 </div>
 
-                                <div class="form-group col-md-6">
-                                    <label for="inputphone">Client Phone</label>
-                                    <input type="text" class="form-control" id="inputphone" name="client_phone" placeholder="Enter Client phone" value="{{ old('client_phone') }}">
+                                <div class="form-group col-md-4">
+                                    <label for="inputphone">Client Primary Phone</label>
+                                    <input type="text" class="form-control" id="inputphone" name="client_phone" placeholder="Enter Client Primary phone" value="{{ old('client_phone') }}">
                                 </div>
 
-                                <div class="form-group col-md-6">
+                                <div class="form-group col-md-3">
+                                    <label for="inputphone">Client Seconday Phone</label>
+                                    <input type="text" class="form-control" id="inputphone" name="mobile_no" placeholder="Enter Client Seconday phone" value="{{ old('mobile_no') }}">
+                                </div>
+
+                                <div class="form-group col-md-4">
                                     <label for="inputEmail4">Client Email</label>
                                     <input type="email" class="form-control" id="inputEmail4" name="client_email" placeholder="Enter Client Email address" value="{{ old('client_email') }}">
                                 </div>

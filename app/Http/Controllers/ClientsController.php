@@ -47,6 +47,7 @@ class ClientsController extends Controller
             'national_id' => $validatedData['national_id'],
             'DOB' => $validatedData['date_reg'],
             'phone' => $validatedData['client_phone'],
+            'mobile_no' => $request->input('mobile_no'),
             'email' => $validatedData['client_email'],
             'home_residence' => $validatedData['client_residence'],
             'postal_address' => $validatedData['client_postal_address'],
