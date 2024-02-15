@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
 
 class DashboardController extends Controller
 {
@@ -22,9 +23,11 @@ class DashboardController extends Controller
         $active_branches = DB::table('tbl_branches')->count();
         $revenue_amount="352";
 
-        $monthly_covers="6";
+        //$monthly_covers="6";
         $monthly_revenue="2600";
         $monthly_expiering="2";// covers coming to an end
+
+
 
 
         $branchDistribution = DB::table('tbl_branches as b')
@@ -46,6 +49,48 @@ class DashboardController extends Controller
         ->groupBy('status')
         ->get();
 
+        $today = Carbon::today();
+
+        // Get the start and end dates of the current week
+        $startOfWeek = Carbon::now()->startOfWeek();
+        $endOfWeek = Carbon::now()->endOfWeek();
+    
+        // Get the start and end dates of the next week
+        $startOfNextWeek = Carbon::now()->addWeek()->startOfWeek();
+        $endOfNextWeek = Carbon::now()->addWeek()->endOfWeek();
+    
+        // Get the start and end dates of the current month
+        $startOfMonth = Carbon::now()->startOfMonth();
+        $endOfMonth = Carbon::now()->endOfMonth();
+
+         // Query the issuedcovers table for covers expiring today
+            $countExpiringCoversToday = DB::table('issuedcovers')
+            ->whereDate('end_date', $today) // Covers ending today
+            ->count();
+
+        // Query the issuedcovers table for covers expiring this week
+        $countExpiringCoversThisWeek = DB::table('issuedcovers')
+            ->whereBetween('end_date', [$startOfWeek, $endOfWeek]) // Covers expiring this week
+            ->count();
+
+        // Query the issuedcovers table for covers expiring next week
+        $countExpiringCoversNextWeek = DB::table('issuedcovers')
+            ->whereBetween('end_date', [$startOfNextWeek, $endOfNextWeek]) // Covers expiring next week
+            ->count();
+
+        // Query the issuedcovers table for covers expiring this month
+        $countExpiringCoversThisMonth = DB::table('issuedcovers')
+            ->whereBetween('end_date', [$startOfMonth, $endOfMonth]) // Covers expiring this month
+            ->count();
+
+
+            // Query the issuedcovers table for covers issued within the current month
+    $countCoversIssuedThisMonth = DB::table('issuedcovers')
+    ->whereBetween('start_date', [$startOfMonth, $endOfMonth]) // Covers issued this month
+    ->count();
+
+
+
 
         //return $branchDistribution;
         
@@ -55,9 +100,14 @@ class DashboardController extends Controller
             'active_branches' => $active_branches,
             'active_policies' => $active_policies,
             'revenue_amount' => $revenue_amount,
-            'monthly_covers' => $monthly_covers,
+            'monthly_covers' => $countCoversIssuedThisMonth,
             'monthly_revenue' => $monthly_revenue,
             'monthly_expiering' => $monthly_expiering,
+            'countExpiringCoversToday' => $countExpiringCoversToday,
+            'countExpiringCoversThisWeek' => $countExpiringCoversThisWeek,
+            'countExpiringCoversNextWeek' => $countExpiringCoversNextWeek,
+            'countExpiringCoversThisMonth' => $countExpiringCoversThisMonth,
+            'countCoversIssuedThisMonth' => $countCoversIssuedThisMonth,
            // 'branchDistribution' => $branchDistribution,
         ];
 

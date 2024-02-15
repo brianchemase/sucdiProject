@@ -126,7 +126,7 @@
               </div>
         </div>
 
-        <div class="col-lg-4 col-sm-6">
+        <div class="col-lg-3 col-sm-6">
           <div class="card card-stats">
               <div class="card-body ">
                 <div class="statistics statistics-horizontal">
@@ -138,15 +138,86 @@
                                   </div>
                                 </div>
                                 <div class="col-7 text-right">
-                                  <h3 class="info-title">{{$monthly_expiering}}</h3>
-                                  <h6 class="stats-title">Covers Coming to an End</h6>
+                                  <h3 class="info-title">{{$countExpiringCoversToday}}</h3>
+                                  <h6 class="stats-title">Covers Ending today</h6>
                                 </div>
                               </div>
                           </div>
                       </div>
                 </div>
               </div>
-        </div>
+              
+          </div>
+
+          <div class="col-lg-3 col-sm-6">
+            <div class="card card-stats">
+                <div class="card-body ">
+                  <div class="statistics statistics-horizontal">
+                            <div class="info info-horizontal">
+                                <div class="row">
+                                  <div class="col-5">
+                                    <div class="icon icon-primary icon-circle">
+                                        <i class="now-ui-icons ui-2_chat-round"></i>
+                                    </div>
+                                  </div>
+                                  <div class="col-7 text-right">
+                                    <h3 class="info-title">{{$countExpiringCoversThisWeek}}</h3>
+                                    <h6 class="stats-title">Covers Ending this Week</h6>
+                                  </div>
+                                </div>
+                            </div>
+                        </div>
+                  </div>
+                </div>
+                
+            </div>
+
+            <div class="col-lg-3 col-sm-6">
+              <div class="card card-stats">
+                  <div class="card-body ">
+                    <div class="statistics statistics-horizontal">
+                              <div class="info info-horizontal">
+                                  <div class="row">
+                                    <div class="col-5">
+                                      <div class="icon icon-primary icon-circle">
+                                          <i class="now-ui-icons ui-2_chat-round"></i>
+                                      </div>
+                                    </div>
+                                    <div class="col-7 text-right">
+                                      <h3 class="info-title">{{$countExpiringCoversNextWeek}}</h3>
+                                      <h6 class="stats-title">Covers Ending next Week</h6>
+                                    </div>
+                                  </div>
+                              </div>
+                          </div>
+                    </div>
+                  </div>
+                  
+              </div>
+
+
+              <div class="col-lg-3 col-sm-6">
+                <div class="card card-stats">
+                    <div class="card-body ">
+                      <div class="statistics statistics-horizontal">
+                                <div class="info info-horizontal">
+                                    <div class="row">
+                                      <div class="col-5">
+                                        <div class="icon icon-primary icon-circle">
+                                            <i class="now-ui-icons ui-2_chat-round"></i>
+                                        </div>
+                                      </div>
+                                      <div class="col-7 text-right">
+                                        <h3 class="info-title">{{$countExpiringCoversThisMonth}}</h3>
+                                        <h6 class="stats-title">Covers Ending this month</h6>
+                                      </div>
+                                    </div>
+                                </div>
+                            </div>
+                      </div>
+                    </div>
+                    
+                </div>
 
       </div>
 
