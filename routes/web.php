@@ -37,6 +37,9 @@ Route::get('/Tumasendsms', [TokenUpdateController::class, 'deliversms'])->name('
 Route::get('/BulkNotifications', [NotificationsController::class, 'SendSMSNotifications'])->name('sendbulksms');
 Route::get('/ThanksNotifications', [NotificationsController::class, 'SendThanksSMSNotifications'])->name('sendthanksbulksms');
 
+//expired covers
+Route::get('/update-expired-status', [IssuedCoversController::class, 'updateExpiredStatus']);
+
 //Route::get('/export/{month}/{year}', 'ReportController@exportToExcel');
 Route::any('/export/{month}/{year}', [ReportController::class, 'exportToExcel'])->name('exportToExcel');// Declarations covers pdf report
 

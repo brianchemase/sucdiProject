@@ -83,9 +83,32 @@ class IssuedCoversController extends Controller
             return redirect()->back()->with('error', 'Error: ' . $e->getMessage());
         }
 
+    }
 
+    public function updateExpiredStatus()
+    {
+        // Get today's date
+        $today = Carbon::today();
 
+        // Query the issuedcovers table for covers with end_date in the past
+        $issuedCoversToUpdate = DB::table('issuedcovers')
+            ->where('status', 'running')
+            ->where('end_date', '<', $today)
+            ->get();
 
+            //return $issuedCoversToUpdate;
+
+        // Update the status to "expired" for the covers that have end_date in the past
+        foreach ($issuedCoversToUpdate as $cover) {
+            DB::table('issuedcovers')
+                ->where('id', $cover->id) // Assuming 'id' is the primary key of the table
+                ->update(['status' => 'expired']);
+        }
+
+        // Optionally, you can redirect or return a response
+       // Return a JSON response
+       return response()->json(['success' => true, 'message' => 'Expired statuses updated successfully']);
+    
     }
 
 
