@@ -10,6 +10,7 @@ use App\Http\Controllers\TokenUpdateController;
 use App\Http\Controllers\ClaimController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\NotificationsController;
+use App\Http\Controllers\SendMailController;
 
 /*
 |--------------------------------------------------------------------------
@@ -42,6 +43,10 @@ Route::get('/update-expired-status', [IssuedCoversController::class, 'updateExpi
 
 //Route::get('/export/{month}/{year}', 'ReportController@exportToExcel');
 Route::any('/export/{month}/{year}', [ReportController::class, 'exportToExcel'])->name('exportToExcel');// Declarations covers pdf report
+
+//test email
+Route::get('/TestMail', [SendMailController::class, 'Testemail'])->name('testmail');
+Route::get('EndingClientIssuedCovers', [SendMailController::class, 'EndingissuedCovers'])->name('EndingissuedCoversPDF');
 
 
 Auth::routes();

@@ -64,7 +64,7 @@ class DashboardController extends Controller
         $endOfMonth = Carbon::now()->endOfMonth();
 
          // Query the issuedcovers table for covers expiring today
-            $countExpiringCoversToday = DB::table('issuedcovers')
+        $countExpiringCoversToday = DB::table('issuedcovers')
             ->whereDate('end_date', $today) // Covers ending today
             ->count();
 
@@ -84,10 +84,10 @@ class DashboardController extends Controller
             ->count();
 
 
-            // Query the issuedcovers table for covers issued within the current month
-    $countCoversIssuedThisMonth = DB::table('issuedcovers')
-    ->whereBetween('start_date', [$startOfMonth, $endOfMonth]) // Covers issued this month
-    ->count();
+        // Query the issuedcovers table for covers issued within the current month
+        $countCoversIssuedThisMonth = DB::table('issuedcovers')
+        ->whereBetween('start_date', [$startOfMonth, $endOfMonth]) // Covers issued this month
+        ->count();
 
 
 
