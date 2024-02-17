@@ -51,7 +51,7 @@ class SendMailController extends Controller
 
 
               Mail::to($email)
-              ->cc(['brian.anikayi@yopmail.com'])
+              ->cc(['brian.anikayi@yopmail.com','mailing@sucdiagency.com'])
               ->send(new EndingCovers($pdf));
 
               return "Email Sent";
