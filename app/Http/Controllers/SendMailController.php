@@ -47,10 +47,14 @@ class SendMailController extends Controller
             $pdf = PDF::loadView('report.EndingIssuedCovers', $data);
             $pdf->setPaper('L', 'landscape');
              // return $pdf->stream("Registered_clientsCovers.pdf");
-             $email="brianchemo@gmail.com";
+             $email="ahmeywali@sucdiagency.com";
 
 
-              Mail::to($email)->send(new EndingCovers($pdf));
+              Mail::to($email)
+              ->cc(['brian.anikayi@yopmail.com'])
+              ->send(new EndingCovers($pdf));
+
+              return "Email Sent";
 
              
 
